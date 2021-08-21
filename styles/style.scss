@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400');
+*{
+    padding:0;
+    margin:0;
+    box-sizing:border-box;
+}
+html{
+    font-size:62.5%;
+    font-family: 'Poppins',sans-serif;
+}
+body{
+    background: rgb(19, 21, 22);
+    min-height: 100vh;
+}
+input,textarea{
+    background: inherit;
+    border:1px solid rgba(200,200,200,0.2);
+    color:rgb(230,230,230);
+    font-family:inherit;
+    resize:none;
+    display: block;
+    width:100%;
+    padding:0.5rem 1rem;
+    background: rgb(17, 17, 20) !important;
+}
+input{
+    height: clamp(2.5rem,3rem,3vw);
+    font-size: clamp(1.8rem,2rem,2vw);
+    padding:2rem 1rem;
+
+}
+textarea{
+    height: 15rem;
+    padding-bottom: 3rem;
+    font-size: clamp(1.7rem,1.9rem,1.9vw);
+}
+header{
+    padding:1rem 1rem;
+    border-bottom: 1px solid rgb(37, 37, 37);
+    display:grid;
+    align-items: center;
+    grid-template-columns: 1fr 2fr 1fr;
+    h3{
+        font-size:clamp(2.5rem,3rem,3vw);
+        color: rgb(230,230,230);
+        font-weight: 300;
+        display: flex;
+    }
+}
+div.note_input_section{
+    padding:3rem 0 0 0;
+    position: relative;
+    width:90%;
+    margin:0 auto;
+}
+a#note_gen_btn{
+    background: rgb(2, 83, 129);
+    width: 4.5rem;
+    height:3rem;
+    display: grid;
+    place-items: center;
+    cursor:pointer;
+    transition: transform 0.2s ease;
+    overflow: hidden;
+    bottom: 0;
+    right:0;
+    position:absolute;
+    &:before,&:after{
+        content:'';
+        position: absolute;
+        width:30%;
+        height: 0.2rem;
+        background: rgb(230,230,230);
+        top:50%;
+        left:50%;
+        transform: translate(-50%,-50%);
+        // transition: transform 0.2s ease;
+        // transform-origin:center;
+    }
+    &:after{
+        transform: translate(-50%,-50%) rotate(90deg);
+        // transition: transform 0.2s ease;
+    }
+    &:active{
+        transform: scale(0.8);
+    }
+
+
+}
+div#note_output_section{
+    // border:1px solid red;
+    padding:3rem 1rem;
+    width:100%;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    justify-content: center;
+    // grid-template-rows: repeat(auto,30rem);
+    grid-gap:0.5rem;
+
+    div.each_note_container{
+        text-align: center;
+        color:rgb(240,240,240);
+        border:1px solid rgba(240,240,240,0.1);
+        height: clamp(15rem,17rem,17vw);
+        border-radius:0.3rem;
+        transition: all 0.2s ease-in;
+        background: rgb(17, 17, 20);
+        h3{
+            padding:0.3rem 0;
+            border-bottom:1px solid rgba(240,240,240,0.1);
+            font-size: clamp(1.8rem,2rem,2vw);
+            font-weight: 300;
+            color: rgb(245,245,245);
+        }
+        p{
+            padding:0.3rem;
+            text-align: left;
+            font-size: clamp(1.6rem,1.8rem,1.8vw);
+        }
+
+    }
+}
+
+
+
+@media screen and(min-width:600px){
+    div.search_form{
+        display: flex;
+        // border:1px solid red;
+        input{
+            padding: 0.5rem 1rem;
+            font-size: clamp(1.5rem,1.7rem,1.7vw);
+        }
+    }
+    div.note_input_section{
+        display:flex;
+        flex-direction:column;
+        padding:3rem 0 0 0;
+        width:50%;
+        max-width: 60rem;
+        margin:0 auto;
+        position:relative;
+        input,textarea{
+            width:100%;
+        }
+        textarea{
+            height: 15rem;
+        }
+    }
+
+    div#note_output_section{
+        padding:3rem 3rem;
+        grid-template-columns: repeat(auto-fit,minmax(30rem,40rem));
+        grid-gap:3rem;
+        position: relative;
+        button{
+            opacity: 0;
+            position: absolute;
+            bottom:0;
+            right:0;
+        }
+        div.each_note_container{
+            transition: transform 0.15s ease;
+            transform: translateY(-1rem);
+            &:hover{
+                button {opacity: 1;}
+            }
+        }
+    }
+}
+
+.body_relative{
+    position: relative;
+    overflow: hidden;
+    background: rgba(0,0,0,0.9);
+    input,textarea{background: inherit !important;}
+    div#note_output_section div{
+        background: inherit;
+    }
+}
+.active_editing{
+    width:70%;
+    max-width: 50rem;
+    position:absolute;
+    height: 50% !important;
+    min-height: 25rem;
+    left:50%;
+    top:50%;
+    transform: translate(-50%,-50%) !important;
+    z-index: 3;
+    background: rgb(17, 17, 20) !important;
+}
