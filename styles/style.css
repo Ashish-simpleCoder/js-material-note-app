@@ -125,25 +125,31 @@ div#note_output_section div.each_note_container {
   text-align: center;
   color: #f0f0f0;
   border: 1px solid rgba(240, 240, 240, 0.1);
-  height: clamp(15rem, 17rem, 17vw);
+  height: clamp(20rem, 25rem, 25vw);
   border-radius: 0.3rem;
   -webkit-transition: all 0.2s ease-in;
   transition: all 0.2s ease-in;
   background: #111114;
+  word-wrap: break-word;
 }
 
 div#note_output_section div.each_note_container h3 {
   padding: 0.3rem 0;
   border-bottom: 1px solid rgba(240, 240, 240, 0.1);
-  font-size: clamp(1.8rem, 2rem, 2vw);
+  font-size: clamp(1.8rem, 2.2rem, 2.2vw);
   font-weight: 300;
   color: whitesmoke;
 }
 
 div#note_output_section div.each_note_container p {
-  padding: 0.3rem;
+  padding: 0.5rem;
   text-align: left;
-  font-size: clamp(1.6rem, 1.8rem, 1.8vw);
+  color: gainsboro;
+  font-size: clamp(1.5rem, 1.8rem, 1.8vw);
+}
+
+div#note_output_section div.each_note_container button {
+  display: none;
 }
 
 @media screen and (min-width: 600px) {
@@ -190,6 +196,7 @@ div#note_output_section div.each_note_container p {
     right: 0;
   }
   div#note_output_section div.each_note_container {
+    height: clamp(17rem, 20rem, 20rem);
     -webkit-transition: -webkit-transform 0.15s ease;
     transition: -webkit-transform 0.15s ease;
     transition: transform 0.15s ease;
@@ -204,7 +211,6 @@ div#note_output_section div.each_note_container p {
 
 .body_relative {
   position: relative;
-  overflow: hidden;
   background: rgba(0, 0, 0, 0.9);
 }
 
@@ -217,16 +223,22 @@ div#note_output_section div.each_note_container p {
 }
 
 .active_editing {
-  width: 70%;
-  max-width: 50rem;
-  position: absolute;
-  height: 50% !important;
-  min-height: 25rem;
-  left: 50%;
-  top: 50%;
-  -webkit-transform: translate(-50%, -50%) !important;
-          transform: translate(-50%, -50%) !important;
-  z-index: 3;
   background: #111114 !important;
+  border: 1px solid green !important;
+  position: relative;
+}
+
+.active_editing button {
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  display: block !important;
+}
+
+@media screen and (min-width: 600px) {
+  .active_editing button {
+    bottom: 3rem;
+    right: 3rem;
+  }
 }
 /*# sourceMappingURL=style.css.map */
