@@ -16,15 +16,18 @@ export default function noteRenderer(note_obj,fromLocal){
     note_title.value='',note_content.value=''
 
     div.addEventListener('click',()=>{
-        div.setAttribute('contenteditable',true)
+        div.children[0].setAttribute('contenteditable',true)
+        div.children[1].setAttribute('contenteditable',true)
         div.classList.add('active_editing')
         document.body.classList.add('body_relative')
     })
 
     document.body.addEventListener('click',()=>{
-        div.setAttribute('contenteditable',false)
+        div.children[0].setAttribute('contenteditable',false)
+        div.children[1].setAttribute('contenteditable',false)
         div.classList.remove('active_editing')
         document.body.classList.remove('body_relative')
+
         let notes = JSON.parse(localStorage.getItem('notes'))
         notes = notes.map(note=>{
             if(note.id == div.id){
@@ -37,7 +40,9 @@ export default function noteRenderer(note_obj,fromLocal){
     },true)
 
     const delete_btn = div.querySelector('#delete_btn')
-    delete_btn.addEventListener('click',function(){
+    delete_btn.addEventListener('click',()=>{
+        setTimeout(()=>document.body.classList.remove('body_relative'),100)
+
         let notes = JSON.parse(localStorage.getItem('notes'))
         notes = notes.filter(note=>note.id != div.id)
         localStorage.setItem('notes',JSON.stringify(notes))
