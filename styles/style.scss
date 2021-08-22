@@ -107,6 +107,8 @@ div#note_output_section{
         transition: all 0.2s ease-in;
         background: rgb(17, 17, 20);
         word-wrap:break-word;
+
+        // opacity: 0;
         h3{
             padding:0.3rem 0;
             border-bottom:1px solid rgba(240,240,240,0.1);
@@ -128,7 +130,15 @@ div#note_output_section{
             }
     }
 }
-
+@keyframes load_div{
+    from{
+        opacity: 0;
+        transform: scale(0.5);
+    }to{
+        opacity: 1;
+        transform:scale(1);
+    }
+}
 
 
 div.search_form{

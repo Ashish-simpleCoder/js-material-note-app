@@ -159,6 +159,32 @@ div#note_output_section div.each_note_container button {
   display: none;
 }
 
+@-webkit-keyframes load_div {
+  from {
+    opacity: 0;
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes load_div {
+  from {
+    opacity: 0;
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
 div.search_form {
   display: -webkit-box;
   display: -ms-flexbox;
