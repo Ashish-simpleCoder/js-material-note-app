@@ -47,27 +47,25 @@ main {
 header {
   padding: 1rem 1rem;
   border-bottom: 1px solid #252525;
-  display: -ms-grid;
-  display: grid;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 header h3 {
   font-size: clamp(2.5rem, 3rem, 3vw);
   color: #e6e6e6;
   font-weight: 300;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
 }
 
 div.note_input_section {
   padding: 3rem 0 0 0;
   position: relative;
   width: 90%;
-  margin: 0 auto;
+  margin: 0 auto 6rem auto;
 }
 
 a#note_gen_btn {
@@ -111,24 +109,28 @@ a#note_gen_btn:active {
 }
 
 div#note_output_section {
-  padding: 3rem 1rem;
   width: 100%;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (1fr)[2];
-      grid-template-columns: repeat(2, 1fr);
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  grid-gap: 0.5rem;
+  padding: 0 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
 }
 
 div#note_output_section div.each_note_container {
   text-align: center;
   color: #f0f0f0;
   border: 1px solid rgba(240, 240, 240, 0.1);
+  width: 100%;
   height: clamp(20rem, 25rem, 25vw);
   border-radius: 0.3rem;
+  margin-bottom: 2rem;
   -webkit-transition: all 0.2s ease-in;
   transition: all 0.2s ease-in;
   background: #111114;
@@ -151,6 +153,9 @@ div#note_output_section div.each_note_container p {
 }
 
 div#note_output_section div.each_note_container button {
+  position: absolute;
+  bottom: 0;
+  right: 0;
   display: none;
 }
 
@@ -159,18 +164,20 @@ div.search_form {
   display: -ms-flexbox;
   display: flex;
   width: 100%;
+  padding: 0 3rem;
   margin: 4rem 0;
-  padding: 0 clamp(3rem, 5rem, 5vw);
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 div.search_form h3 {
-  font-size: clamp(2rem, 3rem, 3vw);
+  font-size: clamp(2.5rem, 3.5rem, 3.5vw);
   color: #f0f0f0;
   font-weight: 300;
+  width: 100%;
 }
 
 div.search_form input {
@@ -205,19 +212,13 @@ div.search_form input {
   }
   div#note_output_section {
     padding: 3rem 3rem;
-    -ms-grid-columns: (minmax(30rem, 40rem))[auto-fit];
-        grid-template-columns: repeat(auto-fit, minmax(30rem, 40rem));
-    grid-gap: 3rem;
     position: relative;
-  }
-  div#note_output_section button {
-    opacity: 0;
-    position: absolute;
-    bottom: 0;
-    right: 0;
   }
   div#note_output_section div.each_note_container {
     height: clamp(17rem, 20rem, 20rem);
+    width: 30%;
+    max-width: 50rem;
+    min-width: 40rem;
     -webkit-transition: -webkit-transform 0.15s ease;
     transition: -webkit-transform 0.15s ease;
     transition: transform 0.15s ease;
@@ -228,7 +229,7 @@ div.search_form input {
             transform: translateY(-1rem);
   }
   div#note_output_section div.each_note_container:hover button {
-    opacity: 1;
+    display: block;
   }
 }
 
@@ -252,16 +253,6 @@ div.search_form input {
 }
 
 .active_editing button {
-  bottom: 0;
-  right: 0;
-  position: absolute;
   display: block !important;
-}
-
-@media screen and (min-width: 600px) {
-  .active_editing button {
-    bottom: 3rem;
-    right: 3rem;
-  }
 }
 /*# sourceMappingURL=style.css.map */

@@ -39,21 +39,19 @@ main{
 header{
     padding:1rem 1rem;
     border-bottom: 1px solid rgb(37, 37, 37);
-    display:grid;
-    align-items: center;
-    // grid-template-columns: 1fr 2fr 1fr;
+    display: flex;
+    justify-content: center;
     h3{
         font-size:clamp(2.5rem,3rem,3vw);
         color: rgb(230,230,230);
         font-weight: 300;
-        display: flex;
     }
 }
 div.note_input_section{
     padding:3rem 0 0 0;
     position: relative;
     width:90%;
-    margin:0 auto;
+    margin:0 auto 6rem auto;
 }
 a#note_gen_btn{
     background: rgb(2, 83, 129);
@@ -90,22 +88,22 @@ a#note_gen_btn{
 
 }
 div#note_output_section{
-    // border:1px solid red;
-    padding:3rem 1rem;
     width:100%;
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-    justify-content: center;
-    // grid-template-rows: repeat(auto,30rem);
-    grid-gap:0.5rem;
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    flex-wrap:wrap;
+    justify-content: space-around;
+
 
     div.each_note_container{
         text-align: center;
         color:rgb(240,240,240);
         border:1px solid rgba(240,240,240,0.1);
+        width: 100%;
         height: clamp(20rem,25rem,25vw);
         border-radius:0.3rem;
-
+        margin-bottom: 2rem;
         transition: all 0.2s ease-in;
         background: rgb(17, 17, 20);
         word-wrap:break-word;
@@ -122,9 +120,12 @@ div#note_output_section{
             color: rgb(220, 220, 220);
             font-size: clamp(1.5rem,1.8rem,1.8vw);
         }
-        button{
-            display: none;
-        }
+         button{
+                position: absolute;
+                bottom:0;
+                right:0;
+                display: none;
+            }
     }
 }
 
@@ -133,16 +134,16 @@ div#note_output_section{
 div.search_form{
     display: flex;
     width:100%;
-    // max-width: 40rem;
-    // margin:5rem 3rem 3rem 3rem;
+    padding: 0 3rem;
     margin:4rem 0;
-    padding:0 clamp(3rem,5rem,5vw);
     align-items: center;
+    border-top: 1px solid rgba(255,255,255,0.1);
     border-bottom: 1px solid rgba(255,255,255,0.1);
     h3{
-        font-size: clamp(2rem,3rem,3vw);
+        font-size: clamp(2.5rem,3.5rem,3.5vw);
         color:rgb(240,240,240);
         font-weight: 300;
+        width: 100%;
     }
     input{
         width:40%;
@@ -173,21 +174,19 @@ div.search_form{
 
     div#note_output_section{
         padding:3rem 3rem;
-        grid-template-columns: repeat(auto-fit,minmax(30rem,40rem));
-        grid-gap:3rem;
         position: relative;
-        button{
-            opacity: 0;
-            position: absolute;
-            bottom:0;
-            right:0;
-        }
         div.each_note_container{
             height: clamp(17rem,20rem,20rem);
+            width: 30%;
+            max-width: 50rem;
+            min-width: 40rem;
             transition: transform 0.15s ease;
+
             &:hover{
                 transform: translateY(-1rem);
-                button {opacity: 1;}
+                button{
+                    display: block;
+                }
             }
         }
     }
@@ -195,30 +194,17 @@ div.search_form{
 
 .body_relative{
     position: relative;
-    // overflow: hidden;
     background: rgba(0,0,0,0.9);
     input,textarea{background: inherit !important;}
     div#note_output_section div{
-        // position: relative;
         background: inherit;
     }
 }
 .active_editing{
-    // z-index: 3;
     background: rgb(17, 17, 20) !important;
     border:1px solid green !important;
     position: relative;
     button{
-        bottom:0;
-        right:0;
-        position:absolute;
         display: block !important;
     }
-    @media screen  and(min-width:600px){
-        button{
-            bottom:3rem;
-            right:3rem;
-        }
-    }
-
 }
