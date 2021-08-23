@@ -9,7 +9,7 @@ html{
     font-family: 'Poppins',sans-serif;
 }
 body{
-    background: rgb(19, 21, 22);
+    background: rgb(29, 32, 34);
     min-height: 100vh;
 }
 input,textarea{
@@ -37,7 +37,7 @@ main{
     padding-bottom: 4rem;
 }
 header{
-    padding:1rem 1rem;
+    // padding:1rem 1rem;
     border-bottom: 1px solid rgb(37, 37, 37);
     display: flex;
     justify-content: center;
@@ -132,7 +132,7 @@ div#note_output_section{
                 position: absolute;
                 bottom:0;
                 left:0;
-                // display: none;
+                display: block;
         }
     }
 }

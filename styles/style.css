@@ -12,7 +12,7 @@ html {
 }
 
 body {
-  background: #131516;
+  background: #1d2022;
   min-height: 100vh;
 }
 
@@ -45,7 +45,6 @@ main {
 }
 
 header {
-  padding: 1rem 1rem;
   border-bottom: 1px solid #252525;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -163,6 +162,7 @@ div#note_output_section div.each_note_container button#edit_btn {
   position: absolute;
   bottom: 0;
   left: 0;
+  display: block;
 }
 
 @-webkit-keyframes load_div {
