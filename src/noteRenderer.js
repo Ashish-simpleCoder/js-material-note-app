@@ -7,6 +7,7 @@ export default function noteRenderer(note_obj,fromLocal){
     div.innerHTML = `<h3>${note_obj.title}</h3>
                      <p>${note_obj.content}</p>
                      <div>
+                        <button id='edit_btn'>edit</button>
                         <button id='delete_btn'>delete</button>
                      </div>`
 
@@ -15,29 +16,30 @@ export default function noteRenderer(note_obj,fromLocal){
 
     note_title.value='',note_content.value=''
 
-    div.addEventListener('click',()=>{
+    const edit_btn = div.querySelector('#edit_btn')
+    edit_btn.addEventListener('click',()=>{
         div.children[0].setAttribute('contenteditable',true)
         div.children[1].setAttribute('contenteditable',true)
         div.classList.add('active_editing')
         document.body.classList.add('body_relative')
     })
 
-    document.body.addEventListener('click',()=>{
-        div.children[0].setAttribute('contenteditable',false)
-        div.children[1].setAttribute('contenteditable',false)
-        div.classList.remove('active_editing')
-        document.body.classList.remove('body_relative')
+    // document.body.addEventListener('click',()=>{
+    //     div.children[0].setAttribute('contenteditable',false)
+    //     div.children[1].setAttribute('contenteditable',false)
+    //     div.classList.remove('active_editing')
+    //     document.body.classList.remove('body_relative')
 
-        let notes = JSON.parse(localStorage.getItem('notes'))
-        notes = notes.map(note=>{
-            if(note.id == div.id){
-                const childrens = div.children
-                return{...note,title:childrens[0].textContent,content:childrens[1].textContent}
-            }
-            return note
-        })
-        localStorage.setItem('notes',JSON.stringify(notes))
-    },true)
+    //     let notes = JSON.parse(localStorage.getItem('notes'))
+    //     notes = notes.map(note=>{
+    //         if(note.id == div.id){
+    //             const childrens = div.children
+    //             return{...note,title:childrens[0].textContent,content:childrens[1].textContent}
+    //         }
+    //         return note
+    //     })
+    //     localStorage.setItem('notes',JSON.stringify(notes))
+    // },true)
 
     const delete_btn = div.querySelector('#delete_btn')
     delete_btn.addEventListener('click',()=>{

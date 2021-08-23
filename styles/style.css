@@ -159,6 +159,12 @@ div#note_output_section div.each_note_container button {
   display: none;
 }
 
+div#note_output_section div.each_note_container button#edit_btn {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
 @-webkit-keyframes load_div {
   from {
     opacity: 0;

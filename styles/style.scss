@@ -122,12 +122,18 @@ div#note_output_section{
             color: rgb(220, 220, 220);
             font-size: clamp(1.5rem,1.8rem,1.8vw);
         }
-         button{
+        button{
                 position: absolute;
                 bottom:0;
                 right:0;
                 display: none;
-            }
+        }
+        button#edit_btn{
+                position: absolute;
+                bottom:0;
+                left:0;
+                // display: none;
+        }
     }
 }
 @keyframes load_div{
