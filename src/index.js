@@ -40,7 +40,6 @@ addEventListener('load',()=>{
     let divs;
     setTimeout(async()=>{
          divs = document.querySelectorAll('.each_note_container')
-        //  console.log(divs)
          if(divs){
              const loazyLoder = await import('./lazyLoader.js')
              divs.forEach((div)=>loazyLoder.default(div))
