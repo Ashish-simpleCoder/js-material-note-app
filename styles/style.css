@@ -145,6 +145,7 @@ div#note_output_section div.each_note_container h3 {
 }
 
 div#note_output_section div.each_note_container p {
+  height: 70%;
   padding: 0.5rem;
   text-align: left;
   color: gainsboro;
@@ -158,11 +159,11 @@ div#note_output_section div.each_note_container button {
   display: none;
 }
 
-div#note_output_section div.each_note_container button#edit_btn {
+div#note_output_section div.each_note_container button#save_btn {
   position: absolute;
   bottom: 0;
   left: 0;
-  display: block;
+  display: none;
 }
 
 @-webkit-keyframes load_div {
@@ -262,6 +263,9 @@ div.search_form input {
   }
   div#note_output_section div.each_note_container:hover button {
     display: block;
+  }
+  div#note_output_section div.each_note_container button#edit_note {
+    display: none !important;
   }
 }
 
