@@ -12,7 +12,7 @@ html {
 }
 
 body {
-  background: #131516;
+  background: #1d2022;
   min-height: 100vh;
 }
 
@@ -45,7 +45,6 @@ main {
 }
 
 header {
-  padding: 1rem 1rem;
   border-bottom: 1px solid #252525;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -146,6 +145,7 @@ div#note_output_section div.each_note_container h3 {
 }
 
 div#note_output_section div.each_note_container p {
+  height: 70%;
   padding: 0.5rem;
   text-align: left;
   color: gainsboro;
@@ -157,6 +157,39 @@ div#note_output_section div.each_note_container button {
   bottom: 0;
   right: 0;
   display: none;
+}
+
+div#note_output_section div.each_note_container button#save_btn {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: none;
+}
+
+@-webkit-keyframes load_div {
+  from {
+    opacity: 0;
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes load_div {
+  from {
+    opacity: 0;
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
 }
 
 div.search_form {
@@ -230,6 +263,9 @@ div.search_form input {
   }
   div#note_output_section div.each_note_container:hover button {
     display: block;
+  }
+  div#note_output_section div.each_note_container button#edit_note {
+    display: none !important;
   }
 }
 

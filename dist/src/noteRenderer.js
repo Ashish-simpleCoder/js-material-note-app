@@ -7,6 +7,7 @@ export default function noteRenderer(note_obj,fromLocal){
     div.innerHTML = `<h3>${note_obj.title}</h3>
                      <p>${note_obj.content}</p>
                      <div>
+                        <button id='save_btn'>save</button>
                         <button id='delete_btn'>delete</button>
                      </div>`
 
@@ -15,37 +16,42 @@ export default function noteRenderer(note_obj,fromLocal){
 
     note_title.value='',note_content.value=''
 
-    div.addEventListener('click',()=>{
-        div.children[0].setAttribute('contenteditable',true)
-        div.children[1].setAttribute('contenteditable',true)
-        div.classList.add('active_editing')
-        document.body.classList.add('body_relative')
+    const h3 = div.querySelector('div h3')
+    const p = div.querySelector('div p')
+    const save_btn = div.querySelector('#save_btn')
+
+    h3.addEventListener('click',async(e)=>{
+        e.stopPropagation()
+        save_btn.style.display = 'block'
+        const editModer = await import('./editModer.js')
+        editModer.default(div,true,true)
+    })
+    p.addEventListener('click',async(e)=>{
+        e.stopPropagation()
+        save_btn.style.display = 'block'
+        const editModer = await import('./editModer.js')
+        editModer.default(div,true,true)
     })
 
-    document.body.addEventListener('click',()=>{
-        div.children[0].setAttribute('contenteditable',false)
-        div.children[1].setAttribute('contenteditable',false)
-        div.classList.remove('active_editing')
-        document.body.classList.remove('body_relative')
+    document.body.addEventListener('click',async()=>{
+        save_btn.style.display = 'none'
+        const saveEditedNote = await import('./saveEditedNote.js')
+        saveEditedNote.default(div)
+    })
 
-        let notes = JSON.parse(localStorage.getItem('notes'))
-        notes = notes.map(note=>{
-            if(note.id == div.id){
-                const childrens = div.children
-                return{...note,title:childrens[0].textContent,content:childrens[1].textContent}
-            }
-            return note
-        })
-        localStorage.setItem('notes',JSON.stringify(notes))
-    },true)
+    save_btn.addEventListener('click',async(e)=>{
+        e.stopPropagation()
+        save_btn.style.display = 'none'
+        const saveEditedNote = await import('./saveEditedNote.js')
+        saveEditedNote.default(div)
+    })
 
     const delete_btn = div.querySelector('#delete_btn')
-    delete_btn.addEventListener('click',()=>{
-        setTimeout(()=>document.body.classList.remove('body_relative'),100)
-
-        let notes = JSON.parse(localStorage.getItem('notes'))
-        notes = notes.filter(note=>note.id != div.id)
-        localStorage.setItem('notes',JSON.stringify(notes))
-        div.remove()
+    delete_btn.addEventListener('click',async (e)=>{
+        e.stopPropagation()
+        const deleteNote = await import('./noteDelete.js')
+        deleteNote.default(div)
     })
 }
+
+

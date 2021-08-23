@@ -9,7 +9,7 @@ html{
     font-family: 'Poppins',sans-serif;
 }
 body{
-    background: rgb(19, 21, 22);
+    background: rgb(29, 32, 34);
     min-height: 100vh;
 }
 input,textarea{
@@ -37,7 +37,7 @@ main{
     padding-bottom: 4rem;
 }
 header{
-    padding:1rem 1rem;
+    // padding:1rem 1rem;
     border-bottom: 1px solid rgb(37, 37, 37);
     display: flex;
     justify-content: center;
@@ -107,6 +107,8 @@ div#note_output_section{
         transition: all 0.2s ease-in;
         background: rgb(17, 17, 20);
         word-wrap:break-word;
+
+        // opacity: 0;
         h3{
             padding:0.3rem 0;
             border-bottom:1px solid rgba(240,240,240,0.1);
@@ -115,20 +117,35 @@ div#note_output_section{
             color: rgb(245,245,245);
         }
         p{
+            height: 70%;
             padding:0.5rem;
             text-align: left;
             color: rgb(220, 220, 220);
             font-size: clamp(1.5rem,1.8rem,1.8vw);
         }
-         button{
+        button{
                 position: absolute;
                 bottom:0;
                 right:0;
                 display: none;
-            }
+        }
+        button#save_btn{
+                position: absolute;
+                bottom:0;
+                left:0;
+                display: none;
+        }
     }
 }
-
+@keyframes load_div{
+    from{
+        opacity: 0;
+        transform: scale(0.5);
+    }to{
+        opacity: 1;
+        transform:scale(1);
+    }
+}
 
 
 div.search_form{
@@ -187,6 +204,9 @@ div.search_form{
                 button{
                     display: block;
                 }
+            }
+            button#edit_note{
+                display: none !important;
             }
         }
     }
