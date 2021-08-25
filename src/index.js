@@ -56,7 +56,8 @@ addEventListener('DOMContentLoaded',()=>{
 
 redirect_to_input_btn.addEventListener('click',()=>note_title.focus())
 
-theme_toggler.addEventListener('click',async()=>{
+theme_toggler.addEventListener('click',async(e)=>{
+    e.stopPropagation()
     const darkModeToggler = await import('./darkMode.js')
-    darkModeToggler.default(document.querySelector('div.circle'))
+    darkModeToggler.default(document.querySelector('div.circle'),e)
 })
