@@ -4,8 +4,8 @@ export default function noteRenderer(note_obj,fromLocal){
     div.setAttribute('id',`${note_obj.id}`)
     div.setAttribute('contenteditable',false)
 
-    div.innerHTML = `<h3>${note_obj.title}</h3>
-                     <p>${note_obj.content}</p>
+    div.innerHTML = `<h3 contenteditable='false'>${note_obj.title}</h3>
+                     <p contenteditable='false'>${note_obj.content}</p>
                      <div>
                         <button id='save_btn'>save</button>
                         <button id='delete_btn'><span><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="trash" class="svg-inline--fa fa-trash fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16zM53.2 467a48 48 0 0 0 47.9 45h245.8a48 48 0 0 0 47.9-45L416 128H32z"></path></svg></span></button>
@@ -24,13 +24,17 @@ export default function noteRenderer(note_obj,fromLocal){
 
     h3.addEventListener('click',async(e)=>{
         e.stopPropagation()
-        const editModer = await import('./editModer.js')
-        editModer.default(div,true,true,e)
+        if(h3.getAttribute('contenteditable') == 'false'){
+            const editModer = await import('./editModer.js')
+            editModer.default(div,true,true,e)
+        }
     })
     p.addEventListener('click',async(e)=>{
         e.stopPropagation()
-        const editModer = await import('./editModer.js')
-        editModer.default(div,true,true,e)
+        if(p.getAttribute('contenteditable') == 'false'){
+            const editModer = await import('./editModer.js')
+            editModer.default(div,true,true,e)
+        }
     })
 
 
