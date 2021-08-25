@@ -62,12 +62,3 @@ theme_toggler.addEventListener('click',async(e)=>{
     darkModeToggler.default(document.querySelector('div.circle'))
 })
 
-let s ='aaa     aaa          vvvvv'
-s = s.replace("  "," ")
-if(s.includes("  ")){
-    for(let i=0;i<s.length; i++){
-        s = s.replace("  "," ")
-    }
-}
-let i = s.indexOf('vv')
-log(i)

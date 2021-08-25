@@ -259,6 +259,10 @@ div#note_output_section div.each_note_container button#save_btn {
   left: 0;
 }
 
+div#note_output_section div.each_note_container button#delete_btn {
+  border: 1px solid red;
+}
+
 div#note_output_section div.each_note_container span.ripple_effect {
   position: absolute;
   background: rgba(2, 61, 95, 0.3);

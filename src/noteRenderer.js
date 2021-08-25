@@ -43,6 +43,7 @@ export default function noteRenderer(note_obj,fromLocal){
         const saveEditedNote = await import('./saveEditedNote.js')
         saveEditedNote.default(div)
     })
+
     save_btn.addEventListener('click',async(e)=>{
         e.stopPropagation()
         const saveEditedNote = await import('./saveEditedNote.js')
@@ -50,7 +51,7 @@ export default function noteRenderer(note_obj,fromLocal){
     })
 
 
-
+    const delete_btn = div.querySelector('#delete_btn')
     delete_btn.addEventListener('click',async (e)=>{
         e.stopPropagation()
         const deleteNote = await import('./noteDelete.js')

@@ -206,6 +206,9 @@ div#note_output_section{
                 left:0;
                 // display: none;
         }
+        button#delete_btn{
+            border:1px solid red;
+        }
         span.ripple_effect{
             position:absolute;
             background: rgba(2, 61, 95,0.3);
