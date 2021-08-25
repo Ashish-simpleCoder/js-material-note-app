@@ -38,7 +38,8 @@ export default function noteRenderer(note_obj,fromLocal){
     })
 
 
-    document.body.addEventListener('click',async()=>{
+    document.body.addEventListener('click',async(e)=>{
+        e.stopPropagation()
         const saveEditedNote = await import('./saveEditedNote.js')
         saveEditedNote.default(div)
     })

@@ -473,7 +473,7 @@ button#save_btn {
 
 button#delete_btn {
   background: none;
-  padding: 0.5rem;
+  padding: 0.5rem 1rem;
 }
 
 button#delete_btn span {
