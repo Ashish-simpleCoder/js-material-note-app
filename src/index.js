@@ -6,8 +6,15 @@ note_gen_btn.addEventListener('click',async function(e){
     noteGenerator.default()
 })
 addEventListener('load',async()=>{
-    const loadNoteFromLocalStorage = await import('./loadNoteFromLocalStorage.js')
-    loadNoteFromLocalStorage.default()
+    let notes = JSON.parse(localStorage.getItem('notes'))
+    if(notes.length === 0){
+        search_form.style.opacity = '0'
+        return
+    }else{
+        dummy.style.display = 'none'
+        const loadNoteFromLocalStorage = await import('./loadNoteFromLocalStorage.js')
+        loadNoteFromLocalStorage.default()
+    }
 })
 
 search_keyword.addEventListener('input',async (e)=>{
@@ -36,14 +43,20 @@ search_keyword.addEventListener('input',async (e)=>{
     }
 })
 
-addEventListener('load',()=>{
-    let divs;
+addEventListener('DOMContentLoaded',()=>{
+    let divs
     setTimeout(async()=>{
-         divs = document.querySelectorAll('.each_note_container')
-         if(divs){
-             const loazyLoder = await import('./lazyLoader.js')
-             divs.forEach((div)=>loazyLoder.default(div))
-         }
+        divs = document.querySelectorAll('.each_note_container')
+        if(divs){
+            const loazyLoder = await import('./lazyLoader.js')
+            divs.forEach((div)=>loazyLoder.default(div))
+    }
     },150)
+})
 
+redirect_to_input_btn.addEventListener('click',()=>note_title.focus())
+
+theme_toggler.addEventListener('click',async()=>{
+    const darkModeToggler = await import('./darkMode.js')
+    darkModeToggler.default(document.querySelector('div.circle'))
 })

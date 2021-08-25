@@ -1,4 +1,5 @@
 export default function saveEditedNote(div){
+    save_btn.style.display = 'none'
     div.children[0].setAttribute('contenteditable',false)
     div.children[1].setAttribute('contenteditable',false)
     div.classList.remove('active_editing')
