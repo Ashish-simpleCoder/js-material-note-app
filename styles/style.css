@@ -152,6 +152,7 @@ div.note_input_section {
   position: relative;
   width: 90%;
   margin: 0 auto 6rem auto;
+  padding-top: 3rem;
 }
 
 div.note_input_section input {
