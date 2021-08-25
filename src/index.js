@@ -23,7 +23,7 @@ search_keyword.addEventListener('input',async (e)=>{
     let j=0
     const handleSearch = await import('./handleSearch.js')
     const matched = handleSearch.default(e.target.value,note_containers,arr,j)
-    console.log(matched)
+    // console.log(matched)
     if(e.target.value == ''){
         note_containers.forEach(note=>{
             note.style.display='block'
@@ -35,7 +35,7 @@ search_keyword.addEventListener('input',async (e)=>{
         for(let i=0; i<matched.length;i++){
             for(let k=0;k<note_containers.length;k++){
                 if(matched[i] == k){
-                    note_containers[k].style.border = '1px solid rgb(200,0,0)'
+                    note_containers[k].style.border = '1px solid rgb(20, 61, 95)'
                     note_containers[k].style.display = 'block'
                 }
             }
@@ -61,3 +61,13 @@ theme_toggler.addEventListener('click',async(e)=>{
     const darkModeToggler = await import('./darkMode.js')
     darkModeToggler.default(document.querySelector('div.circle'))
 })
+
+let s ='aaa     aaa          vvvvv'
+s = s.replace("  "," ")
+if(s.includes("  ")){
+    for(let i=0;i<s.length; i++){
+        s = s.replace("  "," ")
+    }
+}
+let i = s.indexOf('vv')
+log(i)
