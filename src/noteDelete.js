@@ -6,11 +6,13 @@ export default function noteDeleter(div){
     notes = notes.filter(note=>note.id != div.id)
     localStorage.setItem('notes',JSON.stringify(notes))
     div.remove()
-    setTimeout(()=>document.body.classList.remove('body_relative'),100)
+    setTimeout(()=>{
+        document.body.classList.remove('body_relative')
+        if(notes.length === 0){
+            dummy.style.display = 'block'
+            search_form.style.opacity = '0'
+        }
+    },100)
 
 
-    // if(notes.length === 0){
-    //     dummy.style.display = 'block'
-    //     search_form.style.opacity = '0'
-    // }
 }
