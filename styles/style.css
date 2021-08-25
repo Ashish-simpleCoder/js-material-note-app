@@ -260,7 +260,7 @@ div#note_output_section div.each_note_container button#save_btn {
 }
 
 div#note_output_section div.each_note_container button#delete_btn {
-  border: 1px solid red;
+  border: 1px solid #531616;
 }
 
 div#note_output_section div.each_note_container span.ripple_effect {
