@@ -51,7 +51,7 @@ addEventListener('DOMContentLoaded',()=>{
             const loazyLoder = await import('./lazyLoader.js')
             divs.forEach((div)=>loazyLoder.default(div))
     }
-    },150)
+    },500)
 })
 
 redirect_to_input_btn.addEventListener('click',()=>note_title.focus())
@@ -59,5 +59,5 @@ redirect_to_input_btn.addEventListener('click',()=>note_title.focus())
 theme_toggler.addEventListener('click',async(e)=>{
     e.stopPropagation()
     const darkModeToggler = await import('./darkMode.js')
-    darkModeToggler.default(document.querySelector('div.circle'),e)
+    darkModeToggler.default(document.querySelector('div.circle'))
 })
