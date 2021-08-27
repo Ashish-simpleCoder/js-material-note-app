@@ -46,8 +46,8 @@ body {
   min-height: 100vh;
   max-width: 200rem;
   margin: 0 auto;
-  -webkit-transition: background 0.2s ease;
-  transition: background 0.2s ease;
+  -webkit-transition: background 0.2s linear;
+  transition: background 0.2s linear;
 }
 
 input, textarea {
@@ -61,8 +61,8 @@ input, textarea {
   background: var(--input-bg) !important;
   color: var(--clr);
   border-radius: 0.3rem;
-  -webkit-transition: background 0.3s ease;
-  transition: background 0.3s ease;
+  -webkit-transition: background 0.3s linear;
+  transition: background 0.3s linear;
 }
 
 input {
@@ -82,8 +82,8 @@ main {
 
 a {
   cursor: pointer;
-  -webkit-transition: trasform 0.3s ease;
-  transition: trasform 0.3s ease;
+  -webkit-transition: trasform 0.3s linear;
+  transition: trasform 0.3s linear;
 }
 
 a:active {
@@ -107,7 +107,7 @@ header {
 
 header h3 {
   font-size: clamp(2.5rem, 3rem, 3vw);
-  font-weight: 300;
+  font-weight: 400;
   color: var(--clr);
 }
 
@@ -125,10 +125,10 @@ header div div.circle {
   width: 2.6rem;
   height: 100%;
   background: #017a60;
-  -webkit-transition: -webkit-transform 0.3s ease;
-  transition: -webkit-transform 0.3s ease;
-  transition: transform 0.3s ease;
-  transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+  -webkit-transition: -webkit-transform 0.3s linear;
+  transition: -webkit-transform 0.3s linear;
+  transition: transform 0.3s linear;
+  transition: transform 0.3s linear, -webkit-transform 0.3s linear;
   pointer-events: none;
 }
 
@@ -169,10 +169,10 @@ a#note_gen_btn {
   display: grid;
   place-items: center;
   cursor: pointer;
-  -webkit-transition: -webkit-transform 0.2s ease;
-  transition: -webkit-transform 0.2s ease;
-  transition: transform 0.2s ease;
-  transition: transform 0.2s ease, -webkit-transform 0.2s ease;
+  -webkit-transition: -webkit-transform 0.2s linear;
+  transition: -webkit-transform 0.2s linear;
+  transition: transform 0.2s linear;
+  transition: transform 0.2s linear, -webkit-transform 0.2s linear;
   overflow: hidden;
   bottom: 0;
   right: 0;
@@ -217,12 +217,13 @@ div#note_output_section {
 
 div#note_output_section div.each_note_container {
   text-align: center;
+  border: 0.1rem solid var(--border);
   width: 100%;
   height: clamp(20rem, 25rem, 25vw);
   border-radius: 0.5rem;
   margin-bottom: 2rem;
-  -webkit-transition: background 0.3s ease;
-  transition: background 0.3s ease;
+  -webkit-transition: background 0.3s linear;
+  transition: background 0.3s linear;
   background: var(--each-note-bg);
   word-wrap: break-word;
   -webkit-box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
@@ -236,6 +237,8 @@ div#note_output_section div.each_note_container h3 {
   border-bottom: 1px solid var(--border);
   font-size: clamp(1.9rem, 2.2rem, 2.2vw);
   font-weight: 400;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: cursive;
   color: var(--clr);
 }
 
@@ -270,8 +273,8 @@ div#note_output_section div.each_note_container span.ripple_effect {
           transform: translate(-50%, -50%);
   border-radius: 50%;
   pointer-events: none;
-  -webkit-animation: animate_ripple 0.6s linear infinite;
-          animation: animate_ripple 0.6s linear infinite;
+  -webkit-animation: animate_ripple 0.5s linear infinite;
+          animation: animate_ripple 0.5s linear infinite;
 }
 
 @-webkit-keyframes animate_ripple {
@@ -299,26 +302,18 @@ div#note_output_section div.each_note_container span.ripple_effect {
 @-webkit-keyframes load_div {
   from {
     opacity: 0;
-    -webkit-transform: scale(0.5);
-            transform: scale(0.5);
   }
   to {
     opacity: 1;
-    -webkit-transform: scale(1);
-            transform: scale(1);
   }
 }
 
 @keyframes load_div {
   from {
     opacity: 0;
-    -webkit-transform: scale(0.5);
-            transform: scale(0.5);
   }
   to {
     opacity: 1;
-    -webkit-transform: scale(1);
-            transform: scale(1);
   }
 }
 
@@ -381,10 +376,10 @@ div.search_form input#search_keyword {
     width: 30%;
     max-width: 50rem;
     min-width: 40rem;
-    -webkit-transition: -webkit-transform 0.15s ease;
-    transition: -webkit-transform 0.15s ease;
-    transition: transform 0.15s ease;
-    transition: transform 0.15s ease, -webkit-transform 0.15s ease;
+    -webkit-transition: -webkit-transform 0.15s linear;
+    transition: -webkit-transform 0.15s linear;
+    transition: transform 0.15s linear;
+    transition: transform 0.15s linear, -webkit-transform 0.15s linear;
   }
   div#note_output_section div.each_note_container:hover {
     -webkit-transform: translateY(-1rem);
@@ -445,10 +440,10 @@ div#dummy h3.dummy_title {
 
 a#redirect_to_input_btn {
   background: #023d5f;
-  -webkit-transition: -webkit-transform 0.3s ease;
-  transition: -webkit-transform 0.3s ease;
-  transition: transform 0.3s ease;
-  transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+  -webkit-transition: -webkit-transform 0.3s linear;
+  transition: -webkit-transform 0.3s linear;
+  transition: transform 0.3s linear;
+  transition: transform 0.3s linear, -webkit-transform 0.3s linear;
   max-width: 25rem;
 }
 

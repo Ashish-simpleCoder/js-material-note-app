@@ -44,17 +44,6 @@ search_keyword.addEventListener('input',async (e)=>{
     }
 })
 
-// addEventListener('DOMContentLoaded',()=>{
-//     let divs
-//     setTimeout(async()=>{
-//         divs = document.querySelectorAll('.each_note_container')
-//         if(divs){
-//             const loazyLoder = await import('./lazyLoader.js')
-//             divs.forEach((div)=>loazyLoder.default(div))
-//     }
-//     },500)
-// })
-
 redirect_to_input_btn.addEventListener('click',()=>note_title.focus())
 
 theme_toggler.addEventListener('click',async(e)=>{

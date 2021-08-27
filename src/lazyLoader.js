@@ -3,7 +3,7 @@ export default function lazyLoader(divs){
         entries.forEach(entry=>{
             if(entry.isIntersecting){
                 const div = entry.target
-                div.style.animation = 'load_div 0.7s ease forwards'
+                div.style.animation = 'load_div 0.3s linear forwards'
                 observer.disconnect()
             }
         })

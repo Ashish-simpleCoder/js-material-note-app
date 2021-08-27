@@ -8,12 +8,12 @@ export default function editModer(div,c1,c2,e){
     span.style.top = y+'px'
     div.appendChild(span)
 
-    setTimeout(()=>span.remove(),600)
+    setTimeout(()=>span.remove(),500)
     save_btn.style.display = 'block'
-
 
     div.children[0].setAttribute('contenteditable',true)
     div.children[1].setAttribute('contenteditable',true)
+    div.children[1].focus()
     div.classList.add('active_editing')
     document.body.classList.add('body_relative')
 }
