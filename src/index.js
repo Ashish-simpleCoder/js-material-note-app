@@ -7,8 +7,10 @@ note_gen_btn.addEventListener('click',async function(e){
 })
 addEventListener('load',async()=>{
     let notes = JSON.parse(localStorage.getItem('notes'))
-    if(notes.length === 0){
-        search_form.style.opacity = '0'
+    if(notes?.length === 0){
+        // search_form.style.opacity = '0'
+        search_form_title.style.display = 'none'
+        search_keyword.style.display = 'none'
         return
     }else{
         dummy.style.display = 'none'
@@ -23,7 +25,6 @@ search_keyword.addEventListener('input',async (e)=>{
     let j=0
     const handleSearch = await import('./handleSearch.js')
     const matched = handleSearch.default(e.target.value,note_containers,arr,j)
-    // console.log(matched)
     if(e.target.value == ''){
         note_containers.forEach(note=>{
             note.style.display='block'
@@ -43,16 +44,16 @@ search_keyword.addEventListener('input',async (e)=>{
     }
 })
 
-addEventListener('DOMContentLoaded',()=>{
-    let divs
-    setTimeout(async()=>{
-        divs = document.querySelectorAll('.each_note_container')
-        if(divs){
-            const loazyLoder = await import('./lazyLoader.js')
-            divs.forEach((div)=>loazyLoder.default(div))
-    }
-    },500)
-})
+// addEventListener('DOMContentLoaded',()=>{
+//     let divs
+//     setTimeout(async()=>{
+//         divs = document.querySelectorAll('.each_note_container')
+//         if(divs){
+//             const loazyLoder = await import('./lazyLoader.js')
+//             divs.forEach((div)=>loazyLoder.default(div))
+//     }
+//     },500)
+// })
 
 redirect_to_input_btn.addEventListener('click',()=>note_title.focus())
 

@@ -14,42 +14,41 @@ export default function noteRenderer(note_obj,fromLocal){
     if(fromLocal==true) note_output_section.append(div)
     else note_output_section.insertAdjacentElement('afterbegin',div)
     dummy.style.display = 'none'
-    search_form.style.opacity = '1'
 
-    note_title.value='',note_content.value='' //emptying the inputs
+    // search_form.style.opacity = '1'
+    search_form_title.style.display = 'block'
+    search_keyword.style.display = 'block'
 
-    const h3 = div.querySelector('div h3')
-    const p = div.querySelector('div p')
+    note_title.value='', note_content.value='' //emptying the inputs
     const save_btn = div.querySelector('#save_btn')
 
-    h3.addEventListener('click',async(e)=>{
+    div.querySelector('div h3').addEventListener('click',async function(e){
         e.stopPropagation()
-        if(h3.getAttribute('contenteditable') == 'false'){
+        if(this.getAttribute('contenteditable') == 'false'){
             const editModer = await import('./editModer.js')
             editModer.default(div,true,true,e)
         }
     })
-    p.addEventListener('click',async(e)=>{
+    div.querySelector('div p').addEventListener('click',async function(e){
         e.stopPropagation()
-        if(p.getAttribute('contenteditable') == 'false'){
+        if(this.getAttribute('contenteditable') == 'false'){
             const editModer = await import('./editModer.js')
             editModer.default(div,true,true,e)
         }
     })
 
 
-    document.body.addEventListener('click',async(e)=>{
-        e.stopPropagation()
-        const saveEditedNote = await import('./saveEditedNote.js')
-        saveEditedNote.default(div)
-    })
+    // document.body.addEventListener('click',async(e)=>{
+    //     e.stopPropagation()
+    //     const saveEditedNote = await import('./saveEditedNote.js')
+    //     saveEditedNote.default(div)
+    // })
 
     save_btn.addEventListener('click',async(e)=>{
         e.stopPropagation()
         const saveEditedNote = await import('./saveEditedNote.js')
         saveEditedNote.default(div)
     })
-
 
     const delete_btn = div.querySelector('#delete_btn')
     delete_btn.addEventListener('click',async (e)=>{
