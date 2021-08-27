@@ -4,44 +4,48 @@ export default function noteRenderer(note_obj,fromLocal){
     div.setAttribute('id',`${note_obj.id}`)
     div.setAttribute('contenteditable',false)
 
-    div.innerHTML = `<h3>${note_obj.title}</h3>
-                     <p>${note_obj.content}</p>
+    div.innerHTML = `<h3 contenteditable='false'>${note_obj.title}</h3>
+                     <p contenteditable='false'>${note_obj.content}</p>
                      <div>
                         <button id='save_btn'>save</button>
-                        <button id='delete_btn'>delete</button>
+                        <button id='delete_btn'><span><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="trash" class="svg-inline--fa fa-trash fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16zM53.2 467a48 48 0 0 0 47.9 45h245.8a48 48 0 0 0 47.9-45L416 128H32z"></path></svg></span></button>
                      </div>`
 
     if(fromLocal==true) note_output_section.append(div)
     else note_output_section.insertAdjacentElement('afterbegin',div)
+    dummy.style.display = 'none'
 
-    note_title.value='',note_content.value=''
+    // search_form.style.opacity = '1'
+    search_form_title.style.display = 'block'
+    search_keyword.style.display = 'block'
 
-    const h3 = div.querySelector('div h3')
-    const p = div.querySelector('div p')
+    note_title.value='', note_content.value='' //emptying the inputs
     const save_btn = div.querySelector('#save_btn')
 
-    h3.addEventListener('click',async(e)=>{
+    div.querySelector('div h3').addEventListener('click',async function(e){
         e.stopPropagation()
-        save_btn.style.display = 'block'
-        const editModer = await import('./editModer.js')
-        editModer.default(div,true,true)
+        if(this.getAttribute('contenteditable') == 'false'){
+            const editModer = await import('./editModer.js')
+            editModer.default(div,true,true,e)
+        }
     })
-    p.addEventListener('click',async(e)=>{
+    div.querySelector('div p').addEventListener('click',async function(e){
         e.stopPropagation()
-        save_btn.style.display = 'block'
-        const editModer = await import('./editModer.js')
-        editModer.default(div,true,true)
+        if(this.getAttribute('contenteditable') == 'false'){
+            const editModer = await import('./editModer.js')
+            editModer.default(div,true,true,e)
+        }
     })
 
-    document.body.addEventListener('click',async()=>{
-        save_btn.style.display = 'none'
-        const saveEditedNote = await import('./saveEditedNote.js')
-        saveEditedNote.default(div)
-    })
+
+    // document.body.addEventListener('click',async(e)=>{
+    //     e.stopPropagation()
+    //     const saveEditedNote = await import('./saveEditedNote.js')
+    //     saveEditedNote.default(div)
+    // })
 
     save_btn.addEventListener('click',async(e)=>{
         e.stopPropagation()
-        save_btn.style.display = 'none'
         const saveEditedNote = await import('./saveEditedNote.js')
         saveEditedNote.default(div)
     })

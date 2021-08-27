@@ -1,57 +1,125 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400');
 *{
     padding:0;
     margin:0;
     box-sizing:border-box;
 }
+:root{
+    --clr:rgb(245,245,245);
+    --bg-clr:rgb(35,38,41);
+    --border:rgba(255,255,255,0.15);
+    --input-bg:rgb(17, 17, 20);
+    --each-note-bg:rgb(17,17,20);
+    --each-note-shadow:rgba(64, 61, 71, 0.2);
+    --input-focused:rgba(37, 37, 37, 0.2);
+}
+.toggle_theme{
+    --clr:rgb(26, 25, 25);
+    --bg-clr:rgb(225, 225, 225);
+    --border:rgba(22, 22, 22, 0.2);
+    --input-bg:rgb(248, 248, 248);
+    --each-note-bg:rgb(248, 248, 248);
+    --each-note-shadow:rgba(0,0,0,0.2);
+    --input-focused:rgba(0,0,0,0.5);
+
+    div.circle{
+        transform:translateX(210%);
+    }a{
+        background: white;
+    }
+}
 html{
     font-size:62.5%;
     font-family: 'Poppins',sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    letter-spacing: 0.5px;
 }
 body{
-    background: rgb(29, 32, 34);
+    background: var(--bg-clr);
     min-height: 100vh;
+    max-width: 200rem;
+    margin:0 auto;
+    transition:background 0.2s ease;
 }
+
 input,textarea{
     background: inherit;
-    border:1px solid rgba(200,200,200,0.2);
-    color:rgb(230,230,230);
+    border:1px solid var(--border);
     font-family:inherit;
     resize:none;
     display: block;
     width:100%;
     padding:0.5rem 1rem;
-    background: rgb(17, 17, 20) !important;
+    background: var(--input-bg) !important;
+    color:var(--clr);
+    border-radius: 0.3rem;
+    transition: background 0.3s ease;
 }
 input{
     height: clamp(2.5rem,3rem,3vw);
-    font-size: clamp(1.8rem,2rem,2vw);
+    font-size: clamp(1.8rem,2.5rem,2.2vw);
     padding:2rem 1rem;
 }
 textarea{
     height: 15rem;
-    padding-bottom: 3rem;
-    font-size: clamp(1.7rem,1.9rem,1.9vw);
+    font-size: clamp(1.8rem,2rem,2vw);
 }
 main{
     padding-bottom: 4rem;
 }
+a{
+    cursor: pointer;
+    transition: trasform 0.3s ease;
+    &:active{
+        transform: scale(0.9) translateY(0.2rem);
+    }
+}
 header{
-    // padding:1rem 1rem;
-    border-bottom: 1px solid rgb(37, 37, 37);
+    border-bottom: 1px solid var(--border);
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 3rem;
     h3{
         font-size:clamp(2.5rem,3rem,3vw);
-        color: rgb(230,230,230);
         font-weight: 300;
+        color:var(--clr);
+    }
+    div{
+        position: relative;
+        width:8rem;
+        height: 2.5rem;
+        div.circle{
+            position:absolute;
+            border-radius: 50%;
+            top:0;
+            left:0;
+            width:2.6rem;
+            height: 100%;
+            background: rgb(1, 122, 96);
+            transition:transform 0.3s ease;
+            pointer-events: none;
+        }
+    }
+    a{
+        width:100%;
+        height: 100%;
+        border-radius: 1111rem;
+        background: rgb(15, 15, 15);
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        justify-content: space-between;
+        font-size:1.7rem;
     }
 }
 div.note_input_section{
-    padding:3rem 0 0 0;
     position: relative;
     width:90%;
     margin:0 auto 6rem auto;
+    padding-top:3rem ;
+    input{
+        margin-bottom: 0.3rem;
+    }
 }
 a#note_gen_btn{
     background: rgb(2, 83, 129);
@@ -74,12 +142,9 @@ a#note_gen_btn{
         top:50%;
         left:50%;
         transform: translate(-50%,-50%);
-        // transition: transform 0.2s ease;
-        // transform-origin:center;
     }
     &:after{
         transform: translate(-50%,-50%) rotate(90deg);
-        // transition: transform 0.2s ease;
     }
     &:active{
         transform: scale(0.8);
@@ -88,7 +153,6 @@ a#note_gen_btn{
 
 }
 div#note_output_section{
-    width:100%;
     padding: 0 1rem;
     display: flex;
     align-items: center;
@@ -98,30 +162,32 @@ div#note_output_section{
 
     div.each_note_container{
         text-align: center;
-        color:rgb(240,240,240);
-        border:1px solid rgba(240,240,240,0.1);
+        // border:0.1rem solid var(--border);
         width: 100%;
         height: clamp(20rem,25rem,25vw);
-        border-radius:0.3rem;
+        border-radius:0.5rem;
         margin-bottom: 2rem;
-        transition: all 0.2s ease-in;
-        background: rgb(17, 17, 20);
+        transition: background 0.3s ease;
+        background: var(--each-note-bg);
         word-wrap:break-word;
+        box-shadow: 0 5px 5px rgba(0,0,0,0.2);
+        position:relative;
+        overflow:hidden;
 
-        // opacity: 0;
         h3{
             padding:0.3rem 0;
-            border-bottom:1px solid rgba(240,240,240,0.1);
-            font-size: clamp(1.8rem,2.2rem,2.2vw);
-            font-weight: 300;
-            color: rgb(245,245,245);
+            border-bottom:1px solid var(--border);
+            font-size: clamp(1.9rem,2.2rem,2.2vw);
+            font-weight: 400;
+            color:var(--clr);
         }
         p{
             height: 70%;
             padding:0.5rem;
             text-align: left;
-            color: rgb(220, 220, 220);
-            font-size: clamp(1.5rem,1.8rem,1.8vw);
+            color: var(--clr);
+            font-size: clamp(1.7rem,1.9rem,1.9vw);
+            font-weight: 300;
         }
         button{
                 position: absolute;
@@ -130,10 +196,28 @@ div#note_output_section{
                 display: none;
         }
         button#save_btn{
-                position: absolute;
-                bottom:0;
                 left:0;
-                display: none;
+        }
+        button#delete_btn{
+            border:1px solid rgb(83, 22, 22);
+        }
+        span.ripple_effect{
+            position:absolute;
+            background: rgba(2, 61, 95,0.3);
+            transform:translate(-50%,-50%);
+            border-radius:50%;
+            pointer-events: none;
+            animation:animate_ripple 0.6s linear infinite;
+        }
+        @keyframes animate_ripple{
+            from{
+                width:0;
+                height:0;
+            }
+            to{
+                width:80rem;
+                height: 80rem;
+            }
         }
     }
 }
@@ -150,25 +234,24 @@ div#note_output_section{
 
 div.search_form{
     display: flex;
-    width:100%;
     padding: 0 3rem;
     margin:4rem 0;
     align-items: center;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
     h3{
         font-size: clamp(2.5rem,3.5rem,3.5vw);
-        color:rgb(240,240,240);
+        color:var(--clr);
         font-weight: 300;
         width: 100%;
     }
-    input{
-        width:40%;
+    input#search_keyword{
         max-width: 60rem;
-        min-width: 25rem;
-        padding: 0.5rem 1rem;
+        padding: 2rem 1rem;
         margin-left: auto;
         font-size: clamp(1.5rem,1.7rem,1.7vw);
+        height: clamp(2.5rem,4rem,4vw) !important;
+        color:var(--clr);
     }
 }
 @media screen and(min-width:600px){
@@ -201,7 +284,7 @@ div.search_form{
 
             &:hover{
                 transform: translateY(-1rem);
-                button{
+                button#delete_btn{
                     display: block;
                 }
             }
@@ -214,17 +297,74 @@ div.search_form{
 
 .body_relative{
     position: relative;
-    background: rgba(0,0,0,0.9);
+    background: var(--bg-clr);
     input,textarea{background: inherit !important;}
     div#note_output_section div{
         background: inherit;
     }
 }
 .active_editing{
-    background: rgb(17, 17, 20) !important;
+    background: var(--each-note-bg) !important;
     border:1px solid green !important;
     position: relative;
     button{
         display: block !important;
     }
 }
+
+button,a#redirect_to_input_btn{
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border:none;
+    border-radius: 0.3rem;
+}
+div#dummy{
+    h3.dummy_title{
+        font-size: clamp(2rem, 2.5rem ,2.5vw);
+        color:var(--clr);
+        font-weight:300;
+        margin-bottom:2rem;
+    }
+}
+a#redirect_to_input_btn{
+    background: rgb(2, 61, 95);
+    transition: transform 0.3s ease;
+    max-width: 25rem;
+    h3{
+        font-weight: 300;
+        color:white;
+        font-size: clamp(1.7rem,2rem,2vw);
+    }
+    span{
+        font-size: clamp(2.5rem,3rem,3vw);
+        color:rgb(12, 218, 12);
+        margin:0 0.5rem;
+    }
+    &:active{
+        transform: translateY(0.2rem) scale(0.95);
+    }
+
+}
+button#save_btn{
+    background: green;
+    font-size:clamp(1.5rem,1.7rem,1.7vw);
+    color:white;
+    padding:0.5rem 1rem;
+}
+button#delete_btn{
+    background: none;
+    padding:0.5rem 1rem;
+    span{
+        height: 2rem;
+        width:2rem;
+        display: flex;
+        color:red;
+        svg{
+            width:100%;
+            height: 100%;
+        }
+    }
+}
+

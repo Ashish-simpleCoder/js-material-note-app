@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400");
 * {
   padding: 0;
   margin: 0;
@@ -6,65 +5,160 @@
           box-sizing: border-box;
 }
 
+:root {
+  --clr:rgb(245,245,245);
+  --bg-clr:rgb(35,38,41);
+  --border:rgba(255,255,255,0.15);
+  --input-bg:rgb(17, 17, 20);
+  --each-note-bg:rgb(17,17,20);
+  --each-note-shadow:rgba(64, 61, 71, 0.2);
+  --input-focused:rgba(37, 37, 37, 0.2);
+}
+
+.toggle_theme {
+  --clr:rgb(26, 25, 25);
+  --bg-clr:rgb(225, 225, 225);
+  --border:rgba(22, 22, 22, 0.2);
+  --input-bg:rgb(248, 248, 248);
+  --each-note-bg:rgb(248, 248, 248);
+  --each-note-shadow:rgba(0,0,0,0.2);
+  --input-focused:rgba(0,0,0,0.5);
+}
+
+.toggle_theme div.circle {
+  -webkit-transform: translateX(210%);
+          transform: translateX(210%);
+}
+
+.toggle_theme a {
+  background: white;
+}
+
 html {
   font-size: 62.5%;
   font-family: 'Poppins',sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  letter-spacing: 0.5px;
 }
 
 body {
-  background: #1d2022;
+  background: var(--bg-clr);
   min-height: 100vh;
+  max-width: 200rem;
+  margin: 0 auto;
+  -webkit-transition: background 0.2s ease;
+  transition: background 0.2s ease;
 }
 
 input, textarea {
   background: inherit;
-  border: 1px solid rgba(200, 200, 200, 0.2);
-  color: #e6e6e6;
+  border: 1px solid var(--border);
   font-family: inherit;
   resize: none;
   display: block;
   width: 100%;
   padding: 0.5rem 1rem;
-  background: #111114 !important;
+  background: var(--input-bg) !important;
+  color: var(--clr);
+  border-radius: 0.3rem;
+  -webkit-transition: background 0.3s ease;
+  transition: background 0.3s ease;
 }
 
 input {
   height: clamp(2.5rem, 3rem, 3vw);
-  font-size: clamp(1.8rem, 2rem, 2vw);
+  font-size: clamp(1.8rem, 2.5rem, 2.2vw);
   padding: 2rem 1rem;
 }
 
 textarea {
   height: 15rem;
-  padding-bottom: 3rem;
-  font-size: clamp(1.7rem, 1.9rem, 1.9vw);
+  font-size: clamp(1.8rem, 2rem, 2vw);
 }
 
 main {
   padding-bottom: 4rem;
 }
 
+a {
+  cursor: pointer;
+  -webkit-transition: trasform 0.3s ease;
+  transition: trasform 0.3s ease;
+}
+
+a:active {
+  -webkit-transform: scale(0.9) translateY(0.2rem);
+          transform: scale(0.9) translateY(0.2rem);
+}
+
 header {
-  border-bottom: 1px solid #252525;
+  border-bottom: 1px solid var(--border);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 3rem;
 }
 
 header h3 {
   font-size: clamp(2.5rem, 3rem, 3vw);
-  color: #e6e6e6;
   font-weight: 300;
+  color: var(--clr);
+}
+
+header div {
+  position: relative;
+  width: 8rem;
+  height: 2.5rem;
+}
+
+header div div.circle {
+  position: absolute;
+  border-radius: 50%;
+  top: 0;
+  left: 0;
+  width: 2.6rem;
+  height: 100%;
+  background: #017a60;
+  -webkit-transition: -webkit-transform 0.3s ease;
+  transition: -webkit-transform 0.3s ease;
+  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+  pointer-events: none;
+}
+
+header a {
+  width: 100%;
+  height: 100%;
+  border-radius: 1111rem;
+  background: #0f0f0f;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  overflow: hidden;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-size: 1.7rem;
 }
 
 div.note_input_section {
-  padding: 3rem 0 0 0;
   position: relative;
   width: 90%;
   margin: 0 auto 6rem auto;
+  padding-top: 3rem;
+}
+
+div.note_input_section input {
+  margin-bottom: 0.3rem;
 }
 
 a#note_gen_btn {
@@ -108,7 +202,6 @@ a#note_gen_btn:active {
 }
 
 div#note_output_section {
-  width: 100%;
   padding: 0 1rem;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -124,32 +217,35 @@ div#note_output_section {
 
 div#note_output_section div.each_note_container {
   text-align: center;
-  color: #f0f0f0;
-  border: 1px solid rgba(240, 240, 240, 0.1);
   width: 100%;
   height: clamp(20rem, 25rem, 25vw);
-  border-radius: 0.3rem;
+  border-radius: 0.5rem;
   margin-bottom: 2rem;
-  -webkit-transition: all 0.2s ease-in;
-  transition: all 0.2s ease-in;
-  background: #111114;
+  -webkit-transition: background 0.3s ease;
+  transition: background 0.3s ease;
+  background: var(--each-note-bg);
   word-wrap: break-word;
+  -webkit-box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
 }
 
 div#note_output_section div.each_note_container h3 {
   padding: 0.3rem 0;
-  border-bottom: 1px solid rgba(240, 240, 240, 0.1);
-  font-size: clamp(1.8rem, 2.2rem, 2.2vw);
-  font-weight: 300;
-  color: whitesmoke;
+  border-bottom: 1px solid var(--border);
+  font-size: clamp(1.9rem, 2.2rem, 2.2vw);
+  font-weight: 400;
+  color: var(--clr);
 }
 
 div#note_output_section div.each_note_container p {
   height: 70%;
   padding: 0.5rem;
   text-align: left;
-  color: gainsboro;
-  font-size: clamp(1.5rem, 1.8rem, 1.8vw);
+  color: var(--clr);
+  font-size: clamp(1.7rem, 1.9rem, 1.9vw);
+  font-weight: 300;
 }
 
 div#note_output_section div.each_note_container button {
@@ -160,10 +256,44 @@ div#note_output_section div.each_note_container button {
 }
 
 div#note_output_section div.each_note_container button#save_btn {
-  position: absolute;
-  bottom: 0;
   left: 0;
-  display: none;
+}
+
+div#note_output_section div.each_note_container button#delete_btn {
+  border: 1px solid #531616;
+}
+
+div#note_output_section div.each_note_container span.ripple_effect {
+  position: absolute;
+  background: rgba(2, 61, 95, 0.3);
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  border-radius: 50%;
+  pointer-events: none;
+  -webkit-animation: animate_ripple 0.6s linear infinite;
+          animation: animate_ripple 0.6s linear infinite;
+}
+
+@-webkit-keyframes animate_ripple {
+  from {
+    width: 0;
+    height: 0;
+  }
+  to {
+    width: 80rem;
+    height: 80rem;
+  }
+}
+
+@keyframes animate_ripple {
+  from {
+    width: 0;
+    height: 0;
+  }
+  to {
+    width: 80rem;
+    height: 80rem;
+  }
 }
 
 @-webkit-keyframes load_div {
@@ -196,30 +326,29 @@ div.search_form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 100%;
   padding: 0 3rem;
   margin: 4rem 0;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
 }
 
 div.search_form h3 {
   font-size: clamp(2.5rem, 3.5rem, 3.5vw);
-  color: #f0f0f0;
+  color: var(--clr);
   font-weight: 300;
   width: 100%;
 }
 
-div.search_form input {
-  width: 40%;
+div.search_form input#search_keyword {
   max-width: 60rem;
-  min-width: 25rem;
-  padding: 0.5rem 1rem;
+  padding: 2rem 1rem;
   margin-left: auto;
   font-size: clamp(1.5rem, 1.7rem, 1.7vw);
+  height: clamp(2.5rem, 4rem, 4vw) !important;
+  color: var(--clr);
 }
 
 @media screen and (min-width: 600px) {
@@ -261,7 +390,7 @@ div.search_form input {
     -webkit-transform: translateY(-1rem);
             transform: translateY(-1rem);
   }
-  div#note_output_section div.each_note_container:hover button {
+  div#note_output_section div.each_note_container:hover button#delete_btn {
     display: block;
   }
   div#note_output_section div.each_note_container button#edit_note {
@@ -271,7 +400,7 @@ div.search_form input {
 
 .body_relative {
   position: relative;
-  background: rgba(0, 0, 0, 0.9);
+  background: var(--bg-clr);
 }
 
 .body_relative input, .body_relative textarea {
@@ -283,12 +412,86 @@ div.search_form input {
 }
 
 .active_editing {
-  background: #111114 !important;
+  background: var(--each-note-bg) !important;
   border: 1px solid green !important;
   position: relative;
 }
 
 .active_editing button {
   display: block !important;
+}
+
+button, a#redirect_to_input_btn {
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: none;
+  border-radius: 0.3rem;
+}
+
+div#dummy h3.dummy_title {
+  font-size: clamp(2rem, 2.5rem, 2.5vw);
+  color: var(--clr);
+  font-weight: 300;
+  margin-bottom: 2rem;
+}
+
+a#redirect_to_input_btn {
+  background: #023d5f;
+  -webkit-transition: -webkit-transform 0.3s ease;
+  transition: -webkit-transform 0.3s ease;
+  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+  max-width: 25rem;
+}
+
+a#redirect_to_input_btn h3 {
+  font-weight: 300;
+  color: white;
+  font-size: clamp(1.7rem, 2rem, 2vw);
+}
+
+a#redirect_to_input_btn span {
+  font-size: clamp(2.5rem, 3rem, 3vw);
+  color: #0cda0c;
+  margin: 0 0.5rem;
+}
+
+a#redirect_to_input_btn:active {
+  -webkit-transform: translateY(0.2rem) scale(0.95);
+          transform: translateY(0.2rem) scale(0.95);
+}
+
+button#save_btn {
+  background: green;
+  font-size: clamp(1.5rem, 1.7rem, 1.7vw);
+  color: white;
+  padding: 0.5rem 1rem;
+}
+
+button#delete_btn {
+  background: none;
+  padding: 0.5rem 1rem;
+}
+
+button#delete_btn span {
+  height: 2rem;
+  width: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: red;
+}
+
+button#delete_btn span svg {
+  width: 100%;
+  height: 100%;
 }
 /*# sourceMappingURL=style.css.map */

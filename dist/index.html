@@ -11,7 +11,10 @@
 <body>
     <header>
         <h3><span></span>Material Note App</h3>
-        <!-- <button id="theme_toggler">dark</button> -->
+        <div>
+            <a id="theme_toggler"><span>🌞</span><span>🌚</span></a>
+            <div class="circle"></div>
+        </div>
     </header>
 
     <main>
@@ -20,12 +23,15 @@
             <textarea id="note_content" placeholder="your notes..."></textarea>
             <a id='note_gen_btn'></a>
         </div>
-        <div class="search_form">
-            <h3>your notes</h3>
+        <div class="search_form" id='search_form'>
+            <h3 id='search_form_title'>Notes</h3>
             <input type="text" id="search_keyword" placeholder="search your notes...">
         </div>
         <div id="note_output_section">
-
+            <div id="dummy">
+                <h3 class='dummy_title'>Haven't created any notes? Then lets get started.</h3>
+                <a id='redirect_to_input_btn'><span>+</span><h3>create new note</h3></a>
+            </div>
         </div>
     </main>
 </body>
