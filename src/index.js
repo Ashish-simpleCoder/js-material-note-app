@@ -9,7 +9,7 @@ note_gen_btn.addEventListener('click',async function(e){
 })
 addEventListener('load',async()=>{
     let notes = JSON.parse(localStorage.getItem('notes'))
-    if(!(localStorage.getItem('notes'))){
+    if(notes?.length === 0 || !notes){
         search_form_title.style.display = 'none'
         search_keyword.style.display = 'none'
         return
