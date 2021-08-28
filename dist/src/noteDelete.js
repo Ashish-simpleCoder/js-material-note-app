@@ -13,7 +13,7 @@ export default function noteDeleter(div){
             search_form_title.style.display = 'none'
             search_keyword.style.display = 'none'
         }
-    },100)
+    })
 
 
 }

@@ -1,4 +1,6 @@
 const log = console.log
+note_title.addEventListener('click',()=>note_content.style.display = 'block')
+note_title.addEventListener('dblclick',()=>note_content.style.display = 'none')
 
 note_gen_btn.addEventListener('click',async function(e){
     if(!note_title.value || !note_content.value) return
@@ -7,8 +9,7 @@ note_gen_btn.addEventListener('click',async function(e){
 })
 addEventListener('load',async()=>{
     let notes = JSON.parse(localStorage.getItem('notes'))
-    if(notes?.length === 0){
-        // search_form.style.opacity = '0'
+    if(!(localStorage.getItem('notes'))){
         search_form_title.style.display = 'none'
         search_keyword.style.display = 'none'
         return
@@ -21,10 +22,10 @@ addEventListener('load',async()=>{
 
 search_keyword.addEventListener('input',async (e)=>{
     const note_containers = document.querySelectorAll('.each_note_container')
-    let arr =[]
+    let arr = []  //contains index of matched div container
     let j=0
     const handleSearch = await import('./handleSearch.js')
-    const matched = handleSearch.default(e.target.value,note_containers,arr,j)
+    const matched = handleSearch.default(e.target.value, note_containers, arr, j)
     if(e.target.value == ''){
         note_containers.forEach(note=>{
             note.style.display='block'
@@ -32,7 +33,6 @@ search_keyword.addEventListener('input',async (e)=>{
         })
     }else{
         note_containers.forEach(note=>note.style.display='none')
-
         for(let i=0; i<matched.length;i++){
             for(let k=0;k<note_containers.length;k++){
                 if(matched[i] == k){
@@ -43,17 +43,6 @@ search_keyword.addEventListener('input',async (e)=>{
         }
     }
 })
-
-// addEventListener('DOMContentLoaded',()=>{
-//     let divs
-//     setTimeout(async()=>{
-//         divs = document.querySelectorAll('.each_note_container')
-//         if(divs){
-//             const loazyLoder = await import('./lazyLoader.js')
-//             divs.forEach((div)=>loazyLoder.default(div))
-//     }
-//     },500)
-// })
 
 redirect_to_input_btn.addEventListener('click',()=>note_title.focus())
 
