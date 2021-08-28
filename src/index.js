@@ -7,8 +7,7 @@ note_gen_btn.addEventListener('click',async function(e){
 })
 addEventListener('load',async()=>{
     let notes = JSON.parse(localStorage.getItem('notes'))
-    if(notes?.length === 0){
-        // search_form.style.opacity = '0'
+    if(notes.length == 0){
         search_form_title.style.display = 'none'
         search_keyword.style.display = 'none'
         return
@@ -17,6 +16,8 @@ addEventListener('load',async()=>{
         const loadNoteFromLocalStorage = await import('./loadNoteFromLocalStorage.js')
         loadNoteFromLocalStorage.default()
     }
+    note_title.addEventListener('click',()=>note_content.style.display = 'block')
+    note_title.addEventListener('dblclick',()=>note_content.style.display = 'none')
 })
 
 search_keyword.addEventListener('input',async (e)=>{
@@ -32,7 +33,6 @@ search_keyword.addEventListener('input',async (e)=>{
         })
     }else{
         note_containers.forEach(note=>note.style.display='none')
-
         for(let i=0; i<matched.length;i++){
             for(let k=0;k<note_containers.length;k++){
                 if(matched[i] == k){

@@ -7,8 +7,8 @@
 
 :root {
   --clr:rgb(245,245,245);
-  --bg-clr:rgb(35,38,41);
-  --border:rgba(255,255,255,0.15);
+  --bg-clr:linear-gradient(to right bottom, rgb(19, 19, 22),rgb(40, 40, 40));
+  --border:rgba(255,255,255,0.1);
   --input-bg:rgb(17, 17, 20);
   --each-note-bg:rgb(17,17,20);
   --each-note-shadow:rgba(64, 61, 71, 0.2);
@@ -17,7 +17,7 @@
 
 .toggle_theme {
   --clr:rgb(26, 25, 25);
-  --bg-clr:rgb(225, 225, 225);
+  --bg-clr:rgb(236, 235, 235);
   --border:rgba(22, 22, 22, 0.2);
   --input-bg:rgb(248, 248, 248);
   --each-note-bg:rgb(248, 248, 248);
@@ -74,6 +74,7 @@ input {
 textarea {
   height: 15rem;
   font-size: clamp(1.8rem, 2rem, 2vw);
+  display: none;
 }
 
 main {
@@ -102,13 +103,31 @@ header {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 0 3rem;
+  padding: 1rem 3rem;
 }
 
 header h3 {
   font-size: clamp(2.5rem, 3rem, 3vw);
   font-weight: 400;
   color: var(--clr);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header h3 span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-right: 1rem;
+  width: clamp(2.5rem, 4rem, 4vw);
+}
+
+header h3 span img {
+  width: 100%;
 }
 
 header div {
@@ -226,8 +245,8 @@ div#note_output_section div.each_note_container {
   transition: background 0.3s linear;
   background: var(--each-note-bg);
   word-wrap: break-word;
-  -webkit-box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
-          box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
   position: relative;
   overflow: hidden;
 }
@@ -235,11 +254,12 @@ div#note_output_section div.each_note_container {
 div#note_output_section div.each_note_container h3 {
   padding: 0.3rem 0;
   border-bottom: 1px solid var(--border);
-  font-size: clamp(1.9rem, 2.2rem, 2.2vw);
+  font-size: clamp(2rem, 2.2rem, 2.2vw);
   font-weight: 400;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   font-family: cursive;
   color: var(--clr);
+  color: #025381;
 }
 
 div#note_output_section div.each_note_container p {
@@ -335,6 +355,7 @@ div.search_form h3 {
   color: var(--clr);
   font-weight: 300;
   width: 100%;
+  position: relative;
 }
 
 div.search_form input#search_keyword {
@@ -488,5 +509,14 @@ button#delete_btn span {
 button#delete_btn span svg {
   width: 100%;
   height: 100%;
+}
+
+.random_elements {
+  width: 7rem;
+  height: 7rem;
+  border-radius: 50%;
+  background: rgba(1, 122, 96, 0.7);
+  position: absolute;
+  z-index: -1;
 }
 /*# sourceMappingURL=style.css.map */
