@@ -194,7 +194,7 @@ a#note_gen_btn {
   transition: transform 0.2s linear;
   transition: transform 0.2s linear, -webkit-transform 0.2s linear;
   overflow: hidden;
-  bottom: 0;
+  bottom: 5%;
   right: 0;
   position: absolute;
 }

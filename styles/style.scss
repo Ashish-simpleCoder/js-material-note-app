@@ -146,7 +146,7 @@ a#note_gen_btn{
     cursor:pointer;
     transition: transform 0.2s linear;
     overflow: hidden;
-    bottom: 0;
+    bottom:5%;
     right:0;
     position:absolute;
     &:before,&:after{
