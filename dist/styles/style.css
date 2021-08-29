@@ -21,7 +21,7 @@
   --bg-clr:rgb(223, 223, 223);
   --border:rgba(22, 22, 22, 0.2);
   --input-bg:rgb(248, 248, 248);
-  --each-note-bg:rgb(248, 248, 248);
+  --each-note-bg:rgb(255, 255, 255);
   --each-note-shadow:rgba(0,0,0,0.2);
   --input-focused:rgba(0,0,0,0.5);
 }
@@ -188,37 +188,25 @@ a#note_gen_btn {
   display: -ms-grid;
   display: grid;
   place-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   cursor: pointer;
   -webkit-transition: -webkit-transform 0.2s linear;
   transition: -webkit-transform 0.2s linear;
   transition: transform 0.2s linear;
   transition: transform 0.2s linear, -webkit-transform 0.2s linear;
   overflow: hidden;
-  bottom: 0;
+  bottom: 5%;
   right: 0;
   position: absolute;
-}
-
-a#note_gen_btn:before, a#note_gen_btn:after {
-  content: '';
-  position: absolute;
-  width: 30%;
-  height: 0.2rem;
-  background: #e6e6e6;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-}
-
-a#note_gen_btn:after {
-  -webkit-transform: translate(-50%, -50%) rotate(90deg);
-          transform: translate(-50%, -50%) rotate(90deg);
-}
-
-a#note_gen_btn:active {
-  -webkit-transform: scale(0.8);
-          transform: scale(0.8);
+  color: white;
+  font-size: clamp(3rem, 3rem, 3vw);
+  line-height: 3rem;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 div#note_output_section {
@@ -237,13 +225,12 @@ div#note_output_section {
 
 div#note_output_section div.each_note_container {
   text-align: center;
-  border: 0.1rem solid var(--border);
   width: 100%;
   height: clamp(20rem, 25rem, 25vw);
   border-radius: 0.5rem;
   margin-bottom: 2rem;
-  -webkit-transition: background 0.3s linear;
-  transition: background 0.3s linear;
+  -webkit-transition: background 0.5s ease-out;
+  transition: background 0.5s ease-out;
   background: var(--each-note-bg);
   word-wrap: break-word;
   -webkit-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);

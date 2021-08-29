@@ -19,7 +19,7 @@
     --bg-clr:rgb(223, 223, 223);
     --border:rgba(22, 22, 22, 0.2);
     --input-bg:rgb(248, 248, 248);
-    --each-note-bg:rgb(248, 248, 248);
+    --each-note-bg:rgb(255, 255, 255);
     --each-note-shadow:rgba(0,0,0,0.2);
     --input-focused:rgba(0,0,0,0.5);
 
@@ -41,8 +41,6 @@ body{
     max-width: 200rem;
     margin:0 auto;
     transition:background 0.2s linear;
-    // position:relative;
-
 }
 
 input,textarea{
@@ -143,30 +141,17 @@ a#note_gen_btn{
     height:3rem;
     display: grid;
     place-items: center;
+    justify-content: center;
     cursor:pointer;
     transition: transform 0.2s linear;
     overflow: hidden;
-    bottom: 0;
+    bottom:5%;
     right:0;
     position:absolute;
-    &:before,&:after{
-        content:'';
-        position: absolute;
-        width:30%;
-        height: 0.2rem;
-        background: rgb(230,230,230);
-        top:50%;
-        left:50%;
-        transform: translate(-50%,-50%);
-    }
-    &:after{
-        transform: translate(-50%,-50%) rotate(90deg);
-    }
-    &:active{
-        transform: scale(0.8);
-    }
-
-
+    color:white;
+    font-size:clamp(3rem,3rem,3vw);
+    line-height: 3rem;
+    user-select: none;
 }
 div#note_output_section{
     padding: 0 1rem;
@@ -178,12 +163,12 @@ div#note_output_section{
 
     div.each_note_container{
         text-align: center;
-        border:0.1rem solid var(--border);
+        // border:0.1rem solid var(--border);
         width: 100%;
         height: clamp(20rem,25rem,25vw);
         border-radius:0.5rem;
         margin-bottom: 2rem;
-        transition: background 0.3s linear;
+        transition: background 0.5s ease-out;
         background: var(--each-note-bg);
         word-wrap:break-word;
         box-shadow: 0 3px 3px rgba(0,0,0,0.2);
