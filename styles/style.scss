@@ -152,25 +152,6 @@ a#note_gen_btn{
     font-size:clamp(3rem,3rem,3vw);
     line-height: 3rem;
     user-select: none;
-
-    // &:before,&:after{
-    //     content:'';
-    //     position: absolute;
-    //     width:30%;
-    //     height: 0.2rem;
-    //     background: rgb(230,230,230);
-    //     top:50%;
-    //     left:50%;
-    //     transform: translate(-50%,-50%);
-    // }
-    // &:after{
-    //     transform: translate(-50%,-50%) rotate(90deg);
-    // }
-    // &:active{
-    //     transform: scale(0.8);
-    // }
-
-
 }
 div#note_output_section{
     padding: 0 1rem;

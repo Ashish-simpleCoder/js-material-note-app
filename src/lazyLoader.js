@@ -4,7 +4,13 @@ export default function lazyLoader(divs){
             if(entry.isIntersecting){
                 const div = entry.target
                 div.style.animation = 'load_div 0.3s linear forwards'
-                observer.disconnect()
+                // observer.disconnect()
+            }
+            if(!entry.isIntersecting){
+                const div = entry.target
+                div.style.animation =''
+                // div.style.animation = 'load_div 0.3s linear forwards'
+                // observer.disconnect()
             }
         })
     })
