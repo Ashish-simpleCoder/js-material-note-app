@@ -197,7 +197,7 @@ a#note_gen_btn {
   transition: transform 0.2s linear;
   transition: transform 0.2s linear, -webkit-transform 0.2s linear;
   overflow: hidden;
-  bottom: 5%;
+  bottom: 0%;
   right: 0;
   position: absolute;
   color: white;
@@ -207,6 +207,7 @@ a#note_gen_btn {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+  display: none;
 }
 
 div#note_output_section {
@@ -317,20 +318,44 @@ div#note_output_section div.each_note_container span.random_elements {
 }
 
 @-webkit-keyframes load_div {
-  from {
-    opacity: 0;
+  0% {
+    -webkit-transform: scale(0.8);
+            transform: scale(0.8);
+    -webkit-animation-timing-function: ease;
+            animation-timing-function: ease;
   }
-  to {
-    opacity: 1;
+  50% {
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+  100% {
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+    -webkit-transform: scale(1);
+            transform: scale(1);
   }
 }
 
 @keyframes load_div {
-  from {
-    opacity: 0;
+  0% {
+    -webkit-transform: scale(0.8);
+            transform: scale(0.8);
+    -webkit-animation-timing-function: ease;
+            animation-timing-function: ease;
   }
-  to {
-    opacity: 1;
+  50% {
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+  100% {
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+    -webkit-transform: scale(1);
+            transform: scale(1);
   }
 }
 
