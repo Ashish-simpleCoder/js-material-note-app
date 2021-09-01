@@ -1,6 +1,6 @@
 const log = console.log
-note_title.addEventListener('click',()=>note_content.style.display = 'block')
-note_title.addEventListener('dblclick',()=>note_content.style.display = 'none')
+note_title.addEventListener('click',()=>{note_content.style.display = 'block',note_gen_btn.style.display='grid'})
+note_title.addEventListener('dblclick',()=>{note_content.style.display = 'none',note_gen_btn.style.display='none'})
 
 note_gen_btn.addEventListener('click',async function(e){
     if(!note_title.value || !note_content.value) return
