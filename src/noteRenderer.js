@@ -53,14 +53,12 @@ export default async function noteRenderer(note_obj,fromLocal){
             editModer.default(div,true,true,e)
         }
     })
-
     document.body.addEventListener('click',async(e)=>{
         // e.stopPropagation()
         if(div.children[0].getAttribute('contenteditable') === 'false') return
         const saveEditedNote = await import('./saveEditedNote.js')
         saveEditedNote.default(div)
     })
-
     div.querySelector('#save_btn').addEventListener('click',async(e)=>{
         // e.stopPropagation()
         const saveEditedNote = await import('./saveEditedNote.js')
