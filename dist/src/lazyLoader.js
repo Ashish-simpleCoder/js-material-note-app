@@ -1,16 +1,13 @@
 export default function lazyLoader(divs){
-    const io = new IntersectionObserver((entries,observer)=>{
+    const io = new IntersectionObserver(entries=>{
         entries.forEach(entry=>{
             if(entry.isIntersecting){
                 const div = entry.target
                 div.style.animation = 'load_div 0.3s linear forwards'
-                // observer.disconnect()
             }
             if(!entry.isIntersecting){
                 const div = entry.target
                 div.style.animation =''
-                // div.style.animation = 'load_div 0.3s linear forwards'
-                // observer.disconnect()
             }
         })
     })

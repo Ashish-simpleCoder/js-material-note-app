@@ -2,12 +2,12 @@ const log = console.log
 note_title.addEventListener('click',()=>{note_content.style.display = 'block',note_gen_btn.style.display='grid'})
 note_title.addEventListener('dblclick',()=>{note_content.style.display = 'none',note_gen_btn.style.display='none'})
 
-note_gen_btn.addEventListener('click',async function(e){
+note_gen_btn.addEventListener('click', async()=>{
     if(!note_title.value || !note_content.value) return
     const noteGenerator = await import("./noteGenerator.js")
     noteGenerator.default()
 })
-addEventListener('load',async()=>{
+addEventListener('load', async()=>{
     let notes = JSON.parse(localStorage.getItem('notes'))
     if(notes?.length === 0 || !notes){
         search_form_title.style.display = 'none'
@@ -26,7 +26,7 @@ search_keyword.addEventListener('input',async (e)=>{
     let j=0
     const handleSearch = await import('./handleSearch.js')
     const matched = handleSearch.default(e.target.value, note_containers, arr, j)
-    if(e.target.value == ''){
+    if(!e.target.value){
         note_containers.forEach(note=>{
             note.style.display='block'
             note.style.border='none'
@@ -48,7 +48,6 @@ redirect_to_input_btn.addEventListener('click',()=>note_title.focus())
 
 theme_toggler.addEventListener('click',async(e)=>{
     e.stopPropagation()
-    const darkModeToggler = await import('./darkMode.js')
-    darkModeToggler.default(document.querySelector('div.circle'))
+    document.body.classList.toggle('toggle_theme')
 })
 
