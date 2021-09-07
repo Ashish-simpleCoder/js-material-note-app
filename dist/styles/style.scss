@@ -167,6 +167,7 @@ div#note_output_section{
         box-shadow: 0 3px 3px rgba(0,0,0,0.2);
         position:relative;
         overflow:hidden;
+        opacity: 0;
         transition: background 0.3s ease-in 0.1s !important;
         h3{
             padding:0.3rem 0;
@@ -226,9 +227,11 @@ div#note_output_section{
         animation-timing-function: ease;
     }50%{
         animation-timing-function: ease-in;
+        opacity: 1;
         transform: scale(1.1);
     }100%{
         animation-timing-function: ease-out;
+        opacity: 1;
         transform: scale(1);
     }
 }

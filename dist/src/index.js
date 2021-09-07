@@ -43,11 +43,8 @@ search_keyword.addEventListener('input',async (e)=>{
         }
     }
 })
-
 redirect_to_input_btn.addEventListener('click',()=>note_title.focus())
-
 theme_toggler.addEventListener('click',async(e)=>{
     e.stopPropagation()
     document.body.classList.toggle('toggle_theme')
 })
-
