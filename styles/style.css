@@ -494,7 +494,7 @@ div.search_form input#search_keyword {
 @media screen and (max-width: 600px) {
   .active_editing {
     width: 90% !important;
-    height: 80% !important;
+    height: 50% !important;
     margin-bottom: 2rem;
   }
 }
