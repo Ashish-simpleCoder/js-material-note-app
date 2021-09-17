@@ -221,6 +221,7 @@ div#note_output_section {
       flex-wrap: wrap;
   -ms-flex-pack: distribute;
       justify-content: space-around;
+  gap: 3rem;
 }
 
 div#note_output_section div.each_note_container {
@@ -315,6 +316,12 @@ div#note_output_section div.each_note_container span.random_elements {
   position: absolute;
   top: -20%;
   left: -10%;
+}
+
+.animate_list_loading {
+  opacity: 1 !important;
+  -webkit-animation: load_div 0.5s ease forwards;
+          animation: load_div 0.5s ease forwards;
 }
 
 @-webkit-keyframes load_div {
@@ -423,10 +430,8 @@ div.search_form input#search_keyword {
     width: 30%;
     max-width: 50rem;
     min-width: 40rem;
-    -webkit-transition: -webkit-transform 0.15s linear;
-    transition: -webkit-transform 0.15s linear;
-    transition: transform 0.15s linear;
-    transition: transform 0.15s linear, -webkit-transform 0.15s linear;
+    -webkit-transition: all 0.3s ease !important;
+    transition: all 0.3s ease !important;
   }
   div#note_output_section div.each_note_container:hover {
     -webkit-transform: translateY(-1rem);
@@ -454,9 +459,29 @@ div.search_form input#search_keyword {
 }
 
 .active_editing {
+  position: fixed !important;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%) !important;
+          transform: translate(-50%, -50%) !important;
   background: var(--each-note-bg) !important;
   border: 1px solid green !important;
-  position: relative;
+  z-index: 4;
+  width: 50rem !important;
+  height: 50rem !important;
+  -webkit-transition: all 0.3s ease !important;
+  transition: all 0.3s ease !important;
+}
+
+.active_editing p, .active_editing h3 {
+  outline: none;
+}
+
+@media screen and (max-width: 600px) {
+  .active_editing {
+    width: 90% !important;
+    height: 80% !important;
+  }
 }
 
 .active_editing button {

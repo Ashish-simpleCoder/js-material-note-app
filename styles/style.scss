@@ -156,6 +156,7 @@ div#note_output_section{
     align-items: center;
     flex-wrap:wrap;
     justify-content: space-around;
+    gap: 3rem;
     div.each_note_container{
         text-align: center;
         width: 100%;
@@ -169,6 +170,7 @@ div#note_output_section{
         overflow:hidden;
         opacity: 0;
         transition: background 0.3s ease-in 0.1s !important;
+        // transition: all 0.5s ease-in !important;
         h3{
             padding:0.3rem 0;
             border-bottom:1px solid var(--border);
@@ -220,6 +222,10 @@ div#note_output_section{
             left:-10%;
         }
     }
+}
+.animate_list_loading{
+    opacity: 1 !important;
+    animation: load_div 0.5s ease forwards;
 }
 @keyframes load_div{
     0%{
@@ -286,7 +292,8 @@ div.search_form{
             width: 30%;
             max-width: 50rem;
             min-width: 40rem;
-            transition: transform 0.15s linear;
+            // transition: transform 0.15s linear;
+            transition: all 0.3s ease !important;
 
             &:hover{
                 transform: translateY(-1rem);
@@ -310,9 +317,24 @@ div.search_form{
     }
 }
 .active_editing{
+    position: fixed !important;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%) !important;
     background: var(--each-note-bg) !important;
     border:1px solid green !important;
-    position: relative;
+    // position: relative;
+    z-index: 4;
+    width:50rem !important;
+    height: 50rem !important;
+    transition: all 0.3s ease !important;
+    p,h3{
+        outline: none;
+    }
+    @media screen and(max-width:600px) {
+        width:90% !important;
+        height: 80% !important;
+    }
     button{
         display: block !important;
     }
