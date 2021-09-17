@@ -237,8 +237,6 @@ div#note_output_section div.each_note_container {
   position: relative;
   overflow: hidden;
   opacity: 0;
-  -webkit-transition: all 0.3s ease;
-  transition: all 0.3s ease;
 }
 
 div#note_output_section div.each_note_container h3 {
@@ -320,8 +318,8 @@ div#note_output_section div.each_note_container span.random_elements {
 
 .animate_list_loading {
   opacity: 1 !important;
-  -webkit-animation: load_div 0.5s ease forwards;
-          animation: load_div 0.5s ease forwards;
+  -webkit-animation: load_div 0.5s ease forwards !important;
+          animation: load_div 0.5s ease forwards !important;
 }
 
 @-webkit-keyframes load_div {

@@ -172,7 +172,7 @@ div#note_output_section{
         overflow:hidden;
         opacity: 0;
         // transition: background 0.3s ease-in 0.1s !important;
-        transition: all 0.3s ease;
+        // transition: all 0.3s ease;
         // transition: all 0.5s ease-in !important;
         h3{
             padding:0.3rem 0;
@@ -228,7 +228,7 @@ div#note_output_section{
 }
 .animate_list_loading{
     opacity: 1 !important;
-    animation: load_div 0.5s ease forwards;
+    animation: load_div 0.5s ease forwards !important;
 }
 @keyframes load_div{
     0%{
