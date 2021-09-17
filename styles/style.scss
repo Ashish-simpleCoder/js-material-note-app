@@ -336,7 +336,6 @@ div.search_form{
     z-index: 4;
     width:50rem !important;
     height: 50rem !important;
-    // transition: all 0.3s ease !important;
     transition: none;
     cursor: auto !important;
     p,h3{
@@ -345,6 +344,7 @@ div.search_form{
     @media screen and(max-width:600px) {
         width:90% !important;
         height: 80% !important;
+        margin-bottom: 2rem;
     }
     button{
         display: block !important;
