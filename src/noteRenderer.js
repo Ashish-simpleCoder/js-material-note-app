@@ -46,7 +46,7 @@ export default async function noteRenderer(note_obj,fromLocal){
         e.stopPropagation()
         if(this.getAttribute('contenteditable') == 'false'){
             const editModer = await import('./editModer.js')
-            editModer.default(div,true,true,e)
+            editModer.default(div,true,true,e,div.querySelector('.save_btn'))
         }
     })
     div.querySelector('div p').addEventListener('click',async function(e){
