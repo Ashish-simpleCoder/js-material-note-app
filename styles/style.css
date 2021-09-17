@@ -11,7 +11,7 @@
   --border:rgba(255,255,255,0.1);
   --input-bg:rgb(17, 17, 20);
   --input-bg:rgb(7, 7, 7);
-  --each-note-bg:rgb(7, 7, 7);
+  --each-note-bg:linear-gradient(to right bottom , rgb(11, 15, 22),rgb(8, 11, 15));
   --each-note-shadow:rgba(64, 61, 71, 0.2);
   --input-focused:rgba(37, 37, 37, 0.2);
 }
@@ -237,8 +237,8 @@ div#note_output_section div.each_note_container {
   position: relative;
   overflow: hidden;
   opacity: 0;
-  -webkit-transition: background 0.3s ease-in 0.1s !important;
-  transition: background 0.3s ease-in 0.1s !important;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 div#note_output_section div.each_note_container h3 {
@@ -465,12 +465,11 @@ div.search_form input#search_keyword {
   -webkit-transform: translate(-50%, -50%) !important;
           transform: translate(-50%, -50%) !important;
   background: var(--each-note-bg) !important;
-  border: 1px solid green !important;
   z-index: 4;
   width: 50rem !important;
   height: 50rem !important;
-  -webkit-transition: all 0.3s ease !important;
-  transition: all 0.3s ease !important;
+  -webkit-transition: none;
+  transition: none;
 }
 
 .active_editing p, .active_editing h3 {

@@ -9,7 +9,9 @@
     --border:rgba(255,255,255,0.1);
     --input-bg:rgb(17, 17, 20);
     --input-bg:rgb(7, 7, 7);
-    --each-note-bg:rgb(7, 7, 7);
+    // --each-note-bg:rgb(7, 7, 7);
+    --each-note-bg:linear-gradient(to right bottom , rgb(11, 15, 22),rgb(8, 11, 15));
+
     --each-note-shadow:rgba(64, 61, 71, 0.2);
     --input-focused:rgba(37, 37, 37, 0.2);
 }
@@ -169,7 +171,8 @@ div#note_output_section{
         position:relative;
         overflow:hidden;
         opacity: 0;
-        transition: background 0.3s ease-in 0.1s !important;
+        // transition: background 0.3s ease-in 0.1s !important;
+        transition: all 0.3s ease;
         // transition: all 0.5s ease-in !important;
         h3{
             padding:0.3rem 0;
@@ -322,12 +325,11 @@ div.search_form{
     left:50%;
     transform: translate(-50%,-50%) !important;
     background: var(--each-note-bg) !important;
-    border:1px solid green !important;
-    // position: relative;
     z-index: 4;
     width:50rem !important;
     height: 50rem !important;
-    transition: all 0.3s ease !important;
+    // transition: all 0.3s ease !important;
+    transition: none;
     p,h3{
         outline: none;
     }
