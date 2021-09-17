@@ -8,6 +8,7 @@
 :root {
   --clr:rgb(245,245,245);
   --bg-clr:linear-gradient(to right bottom, rgb(19, 19, 22),rgb(40, 40, 40));
+  --bg-clr:linear-gradient(to right bottom, rgb(25, 25, 29),rgb(40, 40, 40));
   --border:rgba(255,255,255,0.1);
   --input-bg:rgb(17, 17, 20);
   --input-bg:rgb(7, 7, 7);
