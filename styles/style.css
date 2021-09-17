@@ -240,6 +240,11 @@ div#note_output_section div.each_note_container {
   opacity: 0;
 }
 
+div#note_output_section div.each_note_container:nth-child(odd) {
+  background: -webkit-gradient(linear, right bottom, left top, from(#0f151f), to(#080b0f));
+  background: linear-gradient(to left top, #0f151f, #080b0f);
+}
+
 div#note_output_section div.each_note_container h3 {
   padding: 0.3rem 0;
   border-bottom: 1px solid var(--border);

@@ -172,6 +172,9 @@ div#note_output_section{
         position:relative;
         overflow:hidden;
         opacity: 0;
+        &:nth-child(odd){
+            background: linear-gradient(to left top , rgb(15, 21, 31),rgb(8, 11, 15));
+        }
         // transition: background 0.3s ease-in 0.1s !important;
         // transition: all 0.3s ease;
         // transition: all 0.5s ease-in !important;

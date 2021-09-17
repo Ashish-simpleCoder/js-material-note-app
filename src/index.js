@@ -3,7 +3,7 @@ note_title.addEventListener('click',()=>{note_content.style.display = 'block',no
 note_title.addEventListener('dblclick',()=>{note_content.style.display = 'none',note_gen_btn.style.display='none'})
 
 note_gen_btn.addEventListener('click', async()=>{
-    if(!note_title.value || !note_content.value) return
+    if(!note_title.value) return
     const noteGenerator = await import("./noteGenerator.js")
     noteGenerator.default()
 })
