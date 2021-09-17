@@ -10,8 +10,8 @@
     --border:rgba(255,255,255,0.1);
     --input-bg:rgb(17, 17, 20);
     --input-bg:rgb(7, 7, 7);
-    // --each-note-bg:rgb(7, 7, 7);
     --each-note-bg:linear-gradient(to right bottom , rgb(11, 15, 22),rgb(8, 11, 15));
+    --each-note-bg-odd:linear-gradient(to left top , rgb(15, 21, 31),rgb(8, 11, 15));
 
     --each-note-shadow:rgba(64, 61, 71, 0.2);
     --input-focused:rgba(37, 37, 37, 0.2);
@@ -21,13 +21,22 @@
     --bg-clr:rgb(223, 223, 223);
     --border:rgba(22, 22, 22, 0.2);
     --input-bg:rgb(248, 248, 248);
-    --each-note-bg:rgb(255, 255, 255);
+    --each-note-bg:linear-gradient(to right bottom , rgb(165, 201, 248),rgb(255, 255, 255));
+    --each-note-bg-odd:linear-gradient(to left top , rgb(221, 183, 247),rgb(255, 255, 255));
     --each-note-shadow:rgba(0,0,0,0.2);
     --input-focused:rgba(0,0,0,0.5);
     div.circle{
         transform:translateX(210%);
     }a{
         background: white;
+    }
+    .each_note_container{
+        h3{
+            font-weight: 500 !important;
+        }
+        p{
+            font-weight: 500 !important;
+        }
     }
 }
 html{
@@ -172,16 +181,14 @@ div#note_output_section{
         position:relative;
         overflow:hidden;
         opacity: 0;
+        transition: background 0.5s ease-in 0.3s !important;
         &:nth-child(odd){
-            background: linear-gradient(to left top , rgb(15, 21, 31),rgb(8, 11, 15));
+            background: var(--each-note-bg-odd);
         }
-        // transition: background 0.3s ease-in 0.1s !important;
-        // transition: all 0.3s ease;
-        // transition: all 0.5s ease-in !important;
         h3{
             padding:0.3rem 0;
             border-bottom:1px solid var(--border);
-            font-size: clamp(2rem,2.2rem,2.2vw);
+            font-size: clamp(2rem,2.5rem,2.5vw);
             font-weight: 400;
             font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
             font-family: cursive;
@@ -195,12 +202,12 @@ div#note_output_section{
             font-size: clamp(1.7rem,1.9rem,1.9vw);
             font-weight: 300;
         }button{
-                position: absolute;
-                bottom:0;
-                right:0;
-                display: none;
+            position: absolute;
+            bottom:0;
+            right:0;
+            display: none;
         }button#save_btn{
-                left:0;
+            left:0;
         }button#delete_btn{
             border:1px solid rgb(83, 22, 22);
         }span.ripple_effect{
@@ -274,7 +281,6 @@ div.search_form{
     }
 }
 @media screen and(min-width:600px){
-
     div.note_input_section{
         display:flex;
         flex-direction:column;
@@ -299,9 +305,7 @@ div.search_form{
             width: 30%;
             max-width: 50rem;
             min-width: 40rem;
-            // transition: transform 0.15s linear;
-            transition: all 0.3s ease !important;
-
+            cursor: pointer;
             &:hover{
                 transform: translateY(-1rem);
                 button#delete_btn{
@@ -334,6 +338,7 @@ div.search_form{
     height: 50rem !important;
     // transition: all 0.3s ease !important;
     transition: none;
+    cursor: auto !important;
     p,h3{
         outline: none;
     }

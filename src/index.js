@@ -1,4 +1,5 @@
 const log = console.log
+window.countEvent = 0;
 note_title.addEventListener('click',()=>{note_content.style.display = 'block',note_gen_btn.style.display='grid'})
 note_title.addEventListener('dblclick',()=>{note_content.style.display = 'none',note_gen_btn.style.display='none'})
 
@@ -6,6 +7,13 @@ note_gen_btn.addEventListener('click', async()=>{
     if(!note_title.value) return
     const noteGenerator = await import("./noteGenerator.js")
     noteGenerator.default()
+    return(()=>{
+        note_gen_btn.addEventListener('click', async()=>{
+            if(!note_title.value) return
+            const noteGenerator = await import("./noteGenerator.js")
+            noteGenerator.default()
+        })
+    })
 })
 addEventListener('load', async()=>{
     let notes = JSON.parse(localStorage.getItem('notes'))

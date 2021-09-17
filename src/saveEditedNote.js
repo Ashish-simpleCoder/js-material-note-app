@@ -1,4 +1,5 @@
 export default function saveEditedNote(div){
+    let save_btn = div.querySelector('.save_btn')
     save_btn && (save_btn.style.display = 'none')
     div.children[0].setAttribute('contenteditable',false)
     div.children[1].setAttribute('contenteditable',false)

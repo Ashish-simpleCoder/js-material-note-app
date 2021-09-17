@@ -13,6 +13,7 @@
   --input-bg:rgb(17, 17, 20);
   --input-bg:rgb(7, 7, 7);
   --each-note-bg:linear-gradient(to right bottom , rgb(11, 15, 22),rgb(8, 11, 15));
+  --each-note-bg-odd:linear-gradient(to left top , rgb(15, 21, 31),rgb(8, 11, 15));
   --each-note-shadow:rgba(64, 61, 71, 0.2);
   --input-focused:rgba(37, 37, 37, 0.2);
 }
@@ -22,7 +23,8 @@
   --bg-clr:rgb(223, 223, 223);
   --border:rgba(22, 22, 22, 0.2);
   --input-bg:rgb(248, 248, 248);
-  --each-note-bg:rgb(255, 255, 255);
+  --each-note-bg:linear-gradient(to right bottom , rgb(165, 201, 248),rgb(255, 255, 255));
+  --each-note-bg-odd:linear-gradient(to left top , rgb(221, 183, 247),rgb(255, 255, 255));
   --each-note-shadow:rgba(0,0,0,0.2);
   --input-focused:rgba(0,0,0,0.5);
 }
@@ -34,6 +36,14 @@
 
 .toggle_theme a {
   background: white;
+}
+
+.toggle_theme .each_note_container h3 {
+  font-weight: 500 !important;
+}
+
+.toggle_theme .each_note_container p {
+  font-weight: 500 !important;
 }
 
 html {
@@ -238,17 +248,18 @@ div#note_output_section div.each_note_container {
   position: relative;
   overflow: hidden;
   opacity: 0;
+  -webkit-transition: background 0.5s ease-in 0.3s !important;
+  transition: background 0.5s ease-in 0.3s !important;
 }
 
 div#note_output_section div.each_note_container:nth-child(odd) {
-  background: -webkit-gradient(linear, right bottom, left top, from(#0f151f), to(#080b0f));
-  background: linear-gradient(to left top, #0f151f, #080b0f);
+  background: var(--each-note-bg-odd);
 }
 
 div#note_output_section div.each_note_container h3 {
   padding: 0.3rem 0;
   border-bottom: 1px solid var(--border);
-  font-size: clamp(2rem, 2.2rem, 2.2vw);
+  font-size: clamp(2rem, 2.5rem, 2.5vw);
   font-weight: 400;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   font-family: cursive;
@@ -434,8 +445,7 @@ div.search_form input#search_keyword {
     width: 30%;
     max-width: 50rem;
     min-width: 40rem;
-    -webkit-transition: all 0.3s ease !important;
-    transition: all 0.3s ease !important;
+    cursor: pointer;
   }
   div#note_output_section div.each_note_container:hover {
     -webkit-transform: translateY(-1rem);
@@ -474,6 +484,7 @@ div.search_form input#search_keyword {
   height: 50rem !important;
   -webkit-transition: none;
   transition: none;
+  cursor: auto !important;
 }
 
 .active_editing p, .active_editing h3 {
