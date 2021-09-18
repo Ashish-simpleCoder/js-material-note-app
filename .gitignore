@@ -1,0 +1,4 @@
+node_modules
+dist/.vscode
+dist/styles/style.scss
+dist/styles/style.scss.map

@@ -1,0 +1,21 @@
+{
+  "name": "1_material_note",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "homepage":"https://ashish-simplecoder.github.io/js-material-note-app/",
+  "scripts": {
+    "deploy":"gh-pages -d dist",
+    "n":"git add . && git commit -m 'committing' && git push && npm run deploy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ashish-simpleCoder/xyz.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ashish-simpleCoder/xyz/issues"
+  }
+}
