@@ -545,7 +545,7 @@ a#redirect_to_input_btn {
 
 a#redirect_to_input_btn h3 {
   font-weight: 400;
-  color: var(--clr);
+  color: #f0f9ff;
   font-size: clamp(1.8rem, 2rem, 2vw);
 }
 
