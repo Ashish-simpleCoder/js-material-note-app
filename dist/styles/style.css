@@ -9,24 +9,27 @@
   --clr:rgb(245,245,245);
   --bg-clr:linear-gradient(to right bottom, rgb(19, 19, 22),rgb(40, 40, 40));
   --bg-clr:linear-gradient(to right bottom, rgb(25, 25, 29),rgb(40, 40, 40));
+  --bg-clr:hsl(202, 97%, 10%);
   --border:rgba(255,255,255,0.1);
   --input-bg:rgb(17, 17, 20);
   --input-bg:rgb(7, 7, 7);
-  --each-note-bg:linear-gradient(to right bottom , rgb(11, 15, 22),rgb(8, 11, 15));
-  --each-note-bg-odd:linear-gradient(to left top , rgb(15, 21, 31),rgb(8, 11, 15));
+  --each-note-bg:hsl(202, 97%, 0%);
   --each-note-shadow:rgba(64, 61, 71, 0.2);
   --input-focused:rgba(37, 37, 37, 0.2);
+  --theme-btn-clr:rgb(0, 0, 0);
+  --note-title-clr:rgb(2, 83, 129);
 }
 
 .toggle_theme {
   --clr:rgb(26, 25, 25);
-  --bg-clr:rgb(225, 225, 225);
+  --bg-clr:rgb(245, 245, 245);
+  --bg-clr:hsl(202, 97%, 98%);
   --border:rgba(22, 22, 22, 0.2);
-  --input-bg:rgb(248, 248, 248);
-  --each-note-bg:linear-gradient(to right bottom , rgb(206, 227, 255),rgb(255, 255, 255));
-  --each-note-bg-odd:linear-gradient(to left top , rgb(238, 213, 255),rgb(255, 255, 255));
+  --input-bg:rgb(255, 255, 255);
+  --each-note-bg:white;
   --each-note-shadow:rgba(0,0,0,0.2);
   --input-focused:rgba(0,0,0,0.5);
+  --theme-btn-clr:white;
 }
 
 .toggle_theme div.circle {
@@ -171,7 +174,8 @@ header a#theme_toggler {
   width: 100%;
   height: 100%;
   border-radius: 1111rem;
-  background: #0f0f0f;
+  background: var(--theme-btn-clr);
+  border: 1px solid rgba(0, 0, 0, 0.2);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -255,17 +259,13 @@ div#note_output_section div.each_note_container {
   transition: all 0.3s ease-in;
 }
 
-div#note_output_section div.each_note_container:nth-child(odd) {
-  background: var(--each-note-bg-odd);
-}
-
 div#note_output_section div.each_note_container h3 {
   padding: 0.3rem 0;
   border-bottom: 1px solid var(--border);
   font-size: clamp(2rem, 2.5rem, 2.5vw);
-  font-weight: 400;
+  font-weight: 500;
   font-family: cursive,'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  color: #025381;
+  color: var(--note-title-clr);
 }
 
 div#note_output_section div.each_note_container p {
@@ -282,6 +282,10 @@ div#note_output_section div.each_note_container button {
   bottom: 0;
   right: 0;
   display: none;
+}
+
+div#note_output_section div.each_note_container button.delete_btn {
+  display: block;
 }
 
 div#note_output_section div.each_note_container span.ripple_effect {
@@ -392,9 +396,9 @@ div.search_form {
 }
 
 div.search_form h3 {
-  font-size: clamp(2.5rem, 3.5rem, 3.5vw);
+  font-size: clamp(2.5rem, 3rem, 3vw);
   color: var(--clr);
-  font-weight: 300;
+  font-weight: 500;
   width: 100%;
   position: relative;
 }
@@ -403,7 +407,7 @@ div.search_form input#search_keyword {
   max-width: 60rem;
   padding: 2rem 1rem;
   margin-left: auto;
-  font-size: clamp(1.5rem, 1.7rem, 1.7vw);
+  font-size: clamp(1.8rem, 2.2rem, 2.2vw);
   height: clamp(2.5rem, 4rem, 4vw) !important;
   color: var(--clr);
 }
@@ -445,9 +449,14 @@ div.search_form input#search_keyword {
   div#note_output_section div.each_note_container:hover {
     -webkit-transform: translateY(-1rem);
             transform: translateY(-1rem);
+    -webkit-box-shadow: 0 0.3rem 0.6rem rgba(64, 61, 71, 0.7);
+            box-shadow: 0 0.3rem 0.6rem rgba(64, 61, 71, 0.7);
   }
   div#note_output_section div.each_note_container:hover button#delete_btn {
     display: block;
+  }
+  div#note_output_section div.each_note_container button.delete_btn {
+    display: none;
   }
   div#note_output_section div.each_note_container button#edit_note {
     display: none !important;
@@ -559,6 +568,10 @@ button#save_btn {
   padding: 0.5rem 2rem !important;
   left: 1rem !important;
   bottom: 1rem !important;
+}
+
+button#delete_btn {
+  padding: 0.5rem 2rem !important;
 }
 
 button#delete_btn {
