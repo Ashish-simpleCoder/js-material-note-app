@@ -4,7 +4,8 @@
     box-sizing:border-box;
 }
 :root{
-    --clr:rgb(245,245,245);
+    --prm-clr:rgb(2,83,129);
+    --clr:hsl(202, 97%, 98%);
     --bg-clr:hsl(202, 97%, 10%);
     --border:rgba(255,255,255,0.1);
     --input-bg:rgb(17, 17, 20);
@@ -18,8 +19,7 @@
     --note-title-clr:rgb(2, 83, 129);
 }
 .toggle_theme{
-    --clr:rgb(26, 25, 25);
-    --bg-clr:rgb(245, 245, 245);
+    --clr:hsl(202, 97%, 15%);
     --bg-clr:hsl(202, 97%, 98%);
     --border:rgba(22, 22, 22, 0.2);
     --input-bg:rgb(255, 255, 255);
@@ -31,11 +31,6 @@
         transform:translateX(150%);
     }a{
         background: white;
-    }
-    .each_note_container{
-        p{
-            font-weight: 500 !important;
-        }
     }
 }
 html{
@@ -63,18 +58,17 @@ input,textarea#note_content{
     color:var(--clr);
     border-radius: 0.3rem;
     transition: background 0.3s linear;
+    font-size: clamp(1.8rem,2rem,2vw);
     &:focus{
         background: var(--input-focused) !important;
     }
 }
 input{
     height: clamp(2.5rem,3rem,3vw);
-    font-size: clamp(1.8rem,2.5rem,2.2vw);
     padding:2rem 1rem;
 }
 textarea#note_content{
     height: 15rem;
-    font-size: clamp(1.8rem,2rem,2vw);
     display: none;
 }
 main{
@@ -96,7 +90,7 @@ header{
     align-items: center;
     justify-content: space-between;
     h3{
-        font-size:clamp(2rem,3rem,3vw);
+        font-size:clamp(2rem,2.5rem,2.5vw);
         font-weight: 400;
         color:var(--clr);
         display:flex;
@@ -186,29 +180,24 @@ div#note_output_section{
         opacity: 0;
         transition: all 0.3s ease-in;
         h3{
-            padding:0.3rem 0;
+            padding:0.5rem 0;
             border-bottom:1px solid var(--border);
-            font-size: clamp(2rem,2.5rem,2.5vw);
+            font-size: clamp(2rem,2rem,2vw);
             font-weight: 500;
             font-family: cursive,'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-            color:var(--note-title-clr);
-        }textarea,p{
-            outline: none;
-            border:none;
+            color:var(--prm-clr);
+        }
+        p{
             padding:0.5rem;
             text-align: left;
             line-height: 2.5rem;
-            font-weight: 400;
-            font-family:inherit;
-            resize:none;
+            font-weight: 500;
             width:100%;
             color:var(--clr);
             height: 80%;
-            cursor: pointer;
-            overflow: hidden;
-            background: inherit;
             font-size: clamp(1.5rem,1.7rem,1.7vw);
-        }button{
+        }
+        button{
             position: absolute;
             bottom:0;
             right:0;
@@ -351,7 +340,6 @@ div.search_form{
     z-index: 4;
     width:50rem !important;
     height: 50rem !important;
-    transition: none;
     cursor: auto !important;
     p,h3{
         outline: none;
@@ -381,10 +369,10 @@ button,a#redirect_to_input_btn{
 div#dummy{
     padding:1rem 3rem;
     h3.dummy_title{
-        font-size: clamp(2.5rem, 2.7rem ,2.7vw);
+        font-size: clamp(2.5rem, 3rem ,3vw);
         color:var(--clr);
         font-weight:400;
-        margin-bottom:2rem;
+        margin-bottom:clamp(4rem,5rem,5vw);
     }
 }
 a#redirect_to_input_btn{
@@ -393,9 +381,9 @@ a#redirect_to_input_btn{
     max-width: 20rem;
     height: clamp(3.5rem,4rem,4vw);
     h3{
-        font-weight: 300;
-        color:white;
-        font-size: clamp(1.9rem,2rem,2vw);
+        font-weight: 400;
+        color:var(--clr);
+        font-size: clamp(1.8rem,2rem,2vw);
     }
     span{
         font-size: clamp(2.5rem,3rem,3vw);
@@ -403,7 +391,7 @@ a#redirect_to_input_btn{
         margin:0 0.8rem;
     }
     &:active{
-        transform: translateY(0.2rem) scale(0.95);
+        transform: translateY(0.3rem) scale(0.8);
     }
 
 }
@@ -451,6 +439,5 @@ button#delete_btn{
     to{
         transform: translateY(15rem)  rotate(-25deg);
         opacity: 0;
-        background: red !important;
     }
 }
