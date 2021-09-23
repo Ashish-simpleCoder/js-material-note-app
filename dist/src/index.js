@@ -7,13 +7,16 @@ note_gen_btn.addEventListener('click', async()=>{
     if(!note_title.value) return
     const noteGenerator = await import("./noteGenerator.js")
     noteGenerator.default()
-    return(()=>{
-        note_gen_btn.addEventListener('click', async()=>{
-            if(!note_title.value) return
-            const noteGenerator = await import("./noteGenerator.js")
-            noteGenerator.default()
-        })
-    })
+    console.log(note_content)
+    return
+
+    // return(()=>{
+    //     note_gen_btn.addEventListener('click', async()=>{
+    //         if(!note_title.value) return
+    //         const noteGenerator = await import("./noteGenerator.js")
+    //         noteGenerator.default()
+    //     })
+    // })
 })
 addEventListener('load', async()=>{
     let notes = JSON.parse(localStorage.getItem('notes'))
