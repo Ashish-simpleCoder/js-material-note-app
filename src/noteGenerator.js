@@ -4,7 +4,6 @@ export default async function noteGenerator(){
         content:note_content.value,
         id:new Date().getTime().toString(),
     }
-
     const noteRenderer = await import('./noteRenderer.js')
     noteRenderer.default(note_obj)
 
