@@ -7,8 +7,6 @@
 
 :root {
   --clr:rgb(245,245,245);
-  --bg-clr:linear-gradient(to right bottom, rgb(19, 19, 22),rgb(40, 40, 40));
-  --bg-clr:linear-gradient(to right bottom, rgb(25, 25, 29),rgb(40, 40, 40));
   --bg-clr:hsl(202, 97%, 10%);
   --border:rgba(255,255,255,0.1);
   --input-bg:rgb(17, 17, 20);
@@ -268,7 +266,7 @@ div#note_output_section div.each_note_container h3 {
   color: var(--note-title-clr);
 }
 
-div#note_output_section div.each_note_container textarea {
+div#note_output_section div.each_note_container textarea, div#note_output_section div.each_note_container p {
   outline: none;
   border: none;
   padding: 0.5rem;
@@ -283,6 +281,7 @@ div#note_output_section div.each_note_container textarea {
   cursor: pointer;
   overflow: hidden;
   background: inherit;
+  font-size: clamp(1.5rem, 1.7rem, 1.7vw);
 }
 
 div#note_output_section div.each_note_container button {
