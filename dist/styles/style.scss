@@ -5,8 +5,6 @@
 }
 :root{
     --clr:rgb(245,245,245);
-    --bg-clr:linear-gradient(to right bottom, rgb(19, 19, 22),rgb(40, 40, 40));
-    --bg-clr:linear-gradient(to right bottom, rgb(25, 25, 29),rgb(40, 40, 40));
     --bg-clr:hsl(202, 97%, 10%);
     --border:rgba(255,255,255,0.1);
     --input-bg:rgb(17, 17, 20);
@@ -194,7 +192,7 @@ div#note_output_section{
             font-weight: 500;
             font-family: cursive,'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
             color:var(--note-title-clr);
-        }textarea{
+        }textarea,p{
             outline: none;
             border:none;
             padding:0.5rem;
@@ -209,6 +207,7 @@ div#note_output_section{
             cursor: pointer;
             overflow: hidden;
             background: inherit;
+            font-size: clamp(1.5rem,1.7rem,1.7vw);
         }button{
             position: absolute;
             bottom:0;
@@ -408,6 +407,9 @@ a#redirect_to_input_btn{
     }
 
 }
+.each_note_container{
+    transition: all 0.5s ease !important;
+}
 button#save_btn{
     background: green;
     font-size:clamp(1.5rem,1.7rem,1.7vw);
@@ -441,3 +443,14 @@ button#delete_btn{
     }
 }
 
+@keyframes deletion{
+    from{
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to{
+        transform: translateY(15rem)  rotate(-25deg);
+        opacity: 0;
+        background: red !important;
+    }
+}
