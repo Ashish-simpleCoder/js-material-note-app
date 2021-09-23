@@ -10,7 +10,7 @@ export default function saveEditedNote(div){
     notes = notes.map(note=>{
         if(note.id == div.id){
             const childrens = div.children
-            return{...note,title:childrens[0].textContent,content:childrens[1].value}
+            return{...note,title:childrens[0].textContent,content:childrens[1].textContent}
         }
         return note
     })
