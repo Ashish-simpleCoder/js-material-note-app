@@ -407,6 +407,9 @@ a#redirect_to_input_btn{
     }
 
 }
+.each_note_container{
+    transition: all 0.5s ease !important;
+}
 button#save_btn{
     background: green;
     font-size:clamp(1.5rem,1.7rem,1.7vw);
@@ -440,3 +443,14 @@ button#delete_btn{
     }
 }
 
+@keyframes deletion{
+    from{
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to{
+        transform: translateY(15rem)  rotate(-25deg);
+        opacity: 0;
+        background: red !important;
+    }
+}

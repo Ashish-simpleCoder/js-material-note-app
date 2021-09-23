@@ -574,6 +574,11 @@ a#redirect_to_input_btn:active {
           transform: translateY(0.2rem) scale(0.95);
 }
 
+.each_note_container {
+  -webkit-transition: all 0.5s ease !important;
+  transition: all 0.5s ease !important;
+}
+
 button#save_btn {
   background: green;
   font-size: clamp(1.5rem, 1.7rem, 1.7vw);
@@ -615,5 +620,33 @@ button#delete_btn span svg {
 button#delete_btn:hover {
   -webkit-transform: translateY(-0.7rem);
           transform: translateY(-0.7rem);
+}
+
+@-webkit-keyframes deletion {
+  from {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  to {
+    -webkit-transform: translateY(15rem) rotate(-25deg);
+            transform: translateY(15rem) rotate(-25deg);
+    opacity: 0;
+    background: red !important;
+  }
+}
+
+@keyframes deletion {
+  from {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  to {
+    -webkit-transform: translateY(15rem) rotate(-25deg);
+            transform: translateY(15rem) rotate(-25deg);
+    opacity: 0;
+    background: red !important;
+  }
 }
 /*# sourceMappingURL=style.css.map */

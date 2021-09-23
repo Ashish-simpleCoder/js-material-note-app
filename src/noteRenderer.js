@@ -70,8 +70,11 @@ export default async function noteRenderer(note_obj,fromLocal){
 
     div.querySelector('#delete_btn').addEventListener('click',async (e)=>{
         e.stopPropagation()
-        const deleteNote = await import('./noteDelete.js')
-        deleteNote.default(div)
+        div.style.animation = 'deletion 0.3s ease forwards'
+        div.addEventListener('animationend',async ()=>{
+            const deleteNote = await import('./noteDelete.js')
+            deleteNote.default(div)
+        })
     })
 }
 
