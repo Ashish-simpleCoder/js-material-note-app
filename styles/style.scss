@@ -15,6 +15,7 @@
     --each-note-shadow:rgba(64, 61, 71, 0.2);
     --input-focused:rgba(37, 37, 37, 0.2);
     --theme-btn-clr:rgb(0, 0, 0);
+    --theme-circle-clr:rgb(2,83,129);
 
     --note-title-clr:rgb(2, 83, 129);
 }
@@ -122,7 +123,7 @@ header{
             left:0;
             width:clamp(2rem,2.6rem,2.6vw);
             height: 100%;
-            background: rgb(1, 122, 96);
+            background: var(--theme-circle-clr);
             transition:transform 0.3s linear;
             pointer-events: none;
         }
@@ -137,7 +138,7 @@ header{
         align-items: center;
         overflow: hidden;
         justify-content: space-between;
-        font-size:1.7rem;
+        font-size:clamp(1.3rem,1.7rem,1.7vw);
     }
 }
 div.note_input_section{
