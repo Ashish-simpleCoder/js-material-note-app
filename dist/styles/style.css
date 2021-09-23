@@ -185,7 +185,7 @@ header a#theme_toggler {
 
 div.note_input_section {
   position: relative;
-  margin: clamp(1rem, 3rem, 3vw) clamp(1rem, 3rem, 3vw);
+  margin: clamp(3rem, 3rem, 3vw) clamp(1rem, 3rem, 3vw);
 }
 
 div.note_input_section input {
@@ -545,7 +545,7 @@ a#redirect_to_input_btn {
 
 a#redirect_to_input_btn h3 {
   font-weight: 400;
-  color: var(--clr);
+  color: #f0f9ff;
   font-size: clamp(1.8rem, 2rem, 2vw);
 }
 

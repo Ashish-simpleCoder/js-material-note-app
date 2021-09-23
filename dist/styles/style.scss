@@ -135,7 +135,7 @@ header{
 }
 div.note_input_section{
     position: relative;
-    margin: clamp(1rem,3rem,3vw) clamp(1rem,3rem,3vw);
+    margin: clamp(3rem,3rem,3vw) clamp(1rem,3rem,3vw);
     input{
         margin-bottom: 1rem;
     }
@@ -382,7 +382,7 @@ a#redirect_to_input_btn{
     height: clamp(3.5rem,4rem,4vw);
     h3{
         font-weight: 400;
-        color:var(--clr);
+        color:hsl(202, 97%, 97%);
         font-size: clamp(1.8rem,2rem,2vw);
     }
     span{
