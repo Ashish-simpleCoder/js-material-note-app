@@ -7,7 +7,6 @@ note_gen_btn.addEventListener('click', async()=>{
     if(!note_title.value) return
     const noteGenerator = await import("./noteGenerator.js")
     noteGenerator.default()
-    console.log(note_content)
     return
 
     // return(()=>{
@@ -55,7 +54,7 @@ search_keyword.addEventListener('input',async (e)=>{
     }
 })
 redirect_to_input_btn.addEventListener('click',()=>note_title.focus())
-theme_toggler.addEventListener('click',async(e)=>{
+theme_toggler.addEventListener('click',(e)=>{
     e.stopPropagation()
     document.body.classList.toggle('toggle_theme')
 })
