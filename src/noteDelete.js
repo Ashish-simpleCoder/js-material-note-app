@@ -20,6 +20,4 @@ export default function noteDeleter(div){
             search_keyword.style.display = 'none'
         }
     })
-
-
 }
