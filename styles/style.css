@@ -12,7 +12,7 @@
   --border:rgba(255,255,255,0.1);
   --input-bg:rgb(17, 17, 20);
   --input-bg:rgb(7, 7, 7);
-  --each-note-bg:hsl(202, 97%, 2%);
+  --each-note-bg:hsl(202, 97%, 0%);
   --each-note-shadow:rgba(64, 61, 71, 0.2);
   --input-focused:hsl(202, 96%, 0%);
   --theme-btn-clr:rgb(0, 0, 0);
@@ -22,7 +22,7 @@
 
 .toggle_theme {
   --clr:hsl(202, 97%, 15%);
-  --bg-clr:hsl(202, 97%, 98%);
+  --bg-clr:hsl(202, 97%, 96%);
   --border:rgba(22, 22, 22, 0.2);
   --input-bg:rgb(255, 255, 255);
   --each-note-bg:white;
