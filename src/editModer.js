@@ -11,7 +11,6 @@ export default function editModer(div,c1,c2,e,save_btn){
     save_btn.style.display = 'block'
 
     div.classList.add('active_editing')
-    document.body.classList.add('body_relative')
     div.children[0].setAttribute('contenteditable',true)
     div.children[1].setAttribute('contenteditable',true)
     div.children[1].focus()
