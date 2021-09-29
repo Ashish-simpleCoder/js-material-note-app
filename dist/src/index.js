@@ -5,17 +5,7 @@ note_title.addEventListener('dblclick',()=>{note_content.style.display = 'none',
 
 note_gen_btn.addEventListener('click', async()=>{
     if(!note_title.value) return
-    const noteGenerator = await import("./noteGenerator.js")
-    noteGenerator.default()
-    return
-
-    // return(()=>{
-    //     note_gen_btn.addEventListener('click', async()=>{
-    //         if(!note_title.value) return
-    //         const noteGenerator = await import("./noteGenerator.js")
-    //         noteGenerator.default()
-    //     })
-    // })
+    (await import("./noteGenerator.js")).default()
 })
 addEventListener('load', async()=>{
     let notes = JSON.parse(localStorage.getItem('notes'))
@@ -24,9 +14,8 @@ addEventListener('load', async()=>{
         search_keyword.style.display = 'none'
         return
     }else{
-        dummy.style.display = 'none'
-        const loadNoteFromLocalStorage = await import('./loadNoteFromLocalStorage.js')
-        loadNoteFromLocalStorage.default()
+        dummy.style.display = 'none';
+        (await import('./loadNoteFromLocalStorage.js')).default()
     }
 })
 
@@ -53,8 +42,9 @@ search_keyword.addEventListener('input',async (e)=>{
         }
     }
 })
+
 redirect_to_input_btn.addEventListener('click',()=>note_title.focus())
 theme_toggler.addEventListener('click',(e)=>{
     e.stopPropagation()
-    document.body.classList.toggle('toggle_theme')
+    document.body.classList.toggle('light_theme')
 })

@@ -1,0 +1,461 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  letter-spacing: 0.05rem;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background: var(--bg-clr);
+  min-height: 100vh;
+  max-width: 200rem;
+  margin: 0 auto;
+  transition: background 0.3s ease-in;
+}
+
+:root {
+  --prm-clr:rgb(2,83,129);
+  --clr:hsl(202, 97%, 98%);
+  --bg-clr:hsl(202, 97%, 11%);
+  --border:rgba(255,255,255,0.1);
+  --input-bg:rgb(0, 0, 0);
+  --each-note-bg:hsl(202, 97%, 0%);
+  --each-note-bg:hsl(202, 97%, 0%);
+  --each-note-shadow:rgba(64, 61, 71, 0.3);
+  --input-focused:hsl(202, 96%, 5%);
+  --theme-btn-clr:rgb(0, 0, 0);
+  --theme-circle-clr:rgb(2,83,129);
+  --note-title-clr:hsl(202, 97%, 98%);
+  --note-content-clr:hsl(0, 0%, 87%);
+}
+
+.toggle_theme {
+  --clr:hsl(202, 97%, 15%);
+  --bg-clr:hsl(202, 97%, 99%);
+  --border:rgba(22, 22, 22, 0.2);
+  --input-bg:rgb(255, 255, 255);
+  --each-note-bg:white;
+  --each-note-shadow:rgba(0,0,0,0.2);
+  --input-focused:hsl(202, 96%, 95%);
+  --theme-btn-clr:white;
+  --note-title-clr:hsl(202, 97%, 10%);
+  --note-content-clr:hsl(202, 97%, 15%);
+}
+.toggle_theme div.circle {
+  transform: translateX(150%);
+}
+.toggle_theme a {
+  background: white;
+}
+
+input, textarea#note_content {
+  background: inherit;
+  border: 1px solid var(--border);
+  resize: none;
+  display: block;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  background: var(--input-bg) !important;
+  color: var(--clr);
+  border-radius: 0.3rem;
+  transition: background 0.3s linear;
+  font-size: clamp(1.8rem, 2rem, 2vw);
+}
+input:focus, textarea#note_content:focus {
+  background: var(--input-focused) !important;
+}
+
+input {
+  height: clamp(2.5rem, 3rem, 3vw);
+  padding: 2rem 1rem;
+}
+
+textarea#note_content {
+  height: 15rem;
+  display: none;
+}
+
+main {
+  padding-bottom: 4rem;
+}
+
+a {
+  cursor: pointer;
+  transition: transform 0.3s linear;
+}
+a:active {
+  transform: scale(0.9) translateY(0.2rem);
+}
+
+header, #note_output_section {
+  padding: 1rem clamp(1rem, 3rem, 3vw);
+}
+
+header {
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+header h3 {
+  font-size: clamp(2rem, 2.5rem, 2.5vw);
+  font-weight: 400;
+  color: var(--clr);
+  display: flex;
+  align-items: center;
+}
+header h3 span {
+  display: flex;
+  margin-right: 1rem;
+  width: clamp(3rem, 4rem, 4vw);
+}
+header h3 span img {
+  width: 100%;
+}
+header div {
+  position: relative;
+  width: clamp(5rem, 6rem, 6vw);
+  height: clamp(2rem, 2.5rem, 2.5vw);
+}
+header div div.circle {
+  position: absolute;
+  border-radius: 50%;
+  top: 0;
+  left: 0;
+  width: clamp(2rem, 2.4rem, 2.4vw);
+  height: 100%;
+  background: var(--theme-circle-clr);
+  transition: transform 0.3s linear;
+  pointer-events: none;
+}
+header a#theme_toggler {
+  width: 100%;
+  height: 100%;
+  border-radius: 1111rem;
+  background: var(--theme-btn-clr);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  justify-content: space-between;
+  font-size: clamp(1.3rem, 1.7rem, 1.7vw);
+}
+
+div.note_input_section {
+  position: relative;
+  margin: clamp(3rem, 3rem, 3vw) clamp(1rem, 3rem, 3vw);
+}
+div.note_input_section input {
+  margin-bottom: 1rem;
+}
+
+a#note_gen_btn {
+  background: #025381;
+  width: 4.5rem;
+  height: 3rem;
+  display: grid;
+  place-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s linear;
+  overflow: hidden;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  color: white;
+  font-size: clamp(3rem, 3rem, 3vw);
+  line-height: 3rem;
+  user-select: none;
+  display: none;
+}
+
+div#note_output_section {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 3rem;
+}
+div#note_output_section div.each_note_container {
+  text-align: center;
+  width: 90%;
+  height: clamp(20rem, 25rem, 25vw);
+  border-radius: 0.5rem;
+  margin-bottom: 2rem;
+  background: var(--each-note-bg);
+  word-wrap: break-word;
+  box-shadow: 0 0.3rem 0.6rem rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+}
+div#note_output_section div.each_note_container h3 {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--border);
+  font-size: clamp(2rem, 2rem, 2vw);
+  font-weight: 200;
+  font-family: cursive, "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  color: var(--note-title-clr);
+}
+div#note_output_section div.each_note_container p {
+  padding: 0.5rem;
+  color: var(--note-content-clr);
+  text-align: left;
+  line-height: 2.5rem;
+  width: 100%;
+  height: 80%;
+  font-size: clamp(1.5rem, 1.7rem, 1.7vw);
+}
+div#note_output_section div.each_note_container button {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: none;
+}
+div#note_output_section div.each_note_container button.delete_btn {
+  display: block;
+}
+div#note_output_section div.each_note_container span.ripple_effect {
+  position: absolute;
+  background: rgba(2, 61, 95, 0.3);
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: animate_ripple 0.5s linear infinite;
+}
+@keyframes animate_ripple {
+  from {
+    width: 0;
+    height: 0;
+  }
+  to {
+    width: 80rem;
+    height: 80rem;
+  }
+}
+div#note_output_section div.each_note_container span.random_elements {
+  width: 7rem;
+  height: 7rem;
+  border-radius: 50%;
+  position: absolute;
+  top: -20%;
+  left: -10%;
+}
+
+.animate_list_loading {
+  opacity: 1 !important;
+  animation: load_div 0.5s ease forwards;
+}
+
+@keyframes load_div {
+  0% {
+    transform: scale(0.8);
+    animation-timing-function: ease;
+    background: #023d5f;
+  }
+  50% {
+    animation-timing-function: ease-in;
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  100% {
+    animation-timing-function: ease-out;
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+div.search_form {
+  display: flex;
+  padding: 0 3rem;
+  margin: 4rem 0;
+  align-items: center;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+div.search_form h3 {
+  font-size: clamp(2.5rem, 3rem, 3vw);
+  font-size: clamp(2rem, 2.5rem, 2.5vw);
+  color: var(--clr);
+  font-weight: 400;
+  width: 100%;
+  position: relative;
+}
+div.search_form input#search_keyword {
+  max-width: 60rem;
+  padding: 2rem 1rem;
+  margin-left: auto;
+  font-size: clamp(1.8rem, 2.2rem, 2.2vw);
+  height: clamp(2.5rem, 4rem, 4vw) !important;
+  color: var(--clr);
+}
+
+@media screen and (min-width: 600px) {
+  div.note_input_section {
+    display: flex;
+    flex-direction: column;
+    padding: 3rem 0 0 0;
+    width: 50%;
+    max-width: 60rem;
+    margin: 0 auto;
+    position: relative;
+  }
+  div.note_input_section input, div.note_input_section textarea {
+    width: 100%;
+  }
+  div.note_input_section textarea {
+    height: 15rem;
+  }
+
+  div#note_output_section {
+    padding: 3rem 3rem;
+    position: relative;
+  }
+  div#note_output_section div.each_note_container {
+    height: 20rem;
+    width: 30%;
+    max-width: 50rem;
+    min-width: 40rem;
+    cursor: pointer;
+  }
+  div#note_output_section div.each_note_container:hover {
+    transform: translateY(-1rem);
+    box-shadow: 0 0.3rem 0.6rem rgba(64, 61, 71, 0.7);
+  }
+  div#note_output_section div.each_note_container:hover button#delete_btn {
+    display: block;
+  }
+  div#note_output_section div.each_note_container button.delete_btn {
+    display: none;
+  }
+  div#note_output_section div.each_note_container button#edit_note {
+    display: none !important;
+  }
+}
+.body_relative {
+  position: relative;
+  background: var(--bg-clr);
+}
+.body_relative input, .body_relative textarea {
+  background: inherit !important;
+}
+.body_relative div#note_output_section div {
+  background: inherit;
+}
+
+.active_editing {
+  position: fixed !important;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) !important;
+  background: var(--each-note-bg) !important;
+  z-index: 4;
+  width: 50rem !important;
+  height: 50rem !important;
+  cursor: auto !important;
+}
+.active_editing p, .active_editing h3 {
+  outline: none;
+}
+@media screen and (max-width: 600px) {
+  .active_editing {
+    width: 90% !important;
+    height: 50% !important;
+    margin-bottom: 2rem;
+  }
+}
+.active_editing button {
+  display: block !important;
+}
+.active_editing textarea {
+  cursor: auto !important;
+  overflow: scroll;
+}
+
+button, a#redirect_to_input_btn {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 0.3rem;
+}
+
+div#dummy {
+  padding: 1rem 3rem;
+}
+div#dummy h3.dummy_title {
+  font-size: clamp(2.5rem, 3rem, 3vw);
+  color: var(--clr);
+  font-weight: 400;
+  margin-bottom: clamp(4rem, 5rem, 5vw);
+}
+
+a#redirect_to_input_btn {
+  background: #023d5f;
+  transition: transform 0.3s linear;
+  max-width: 20rem;
+  height: clamp(3.5rem, 4rem, 4vw);
+}
+a#redirect_to_input_btn h3 {
+  font-weight: 400;
+  color: #f0f9ff;
+  font-size: clamp(1.8rem, 2rem, 2vw);
+}
+a#redirect_to_input_btn span {
+  font-size: clamp(2.5rem, 3rem, 3vw);
+  color: #0cda0c;
+  margin: 0 0.8rem;
+}
+a#redirect_to_input_btn:active {
+  transform: translateY(0.3rem) scale(0.8);
+}
+
+.each_note_container {
+  transition: width 0.3s ease, transform 0.3s ease !important;
+}
+
+button#save_btn {
+  background: green;
+  font-size: clamp(1.5rem, 1.7rem, 1.7vw);
+  color: white;
+  font-weight: 400;
+  padding: 0.5rem 2rem !important;
+  left: 1rem !important;
+  bottom: 1rem !important;
+}
+
+button#delete_btn {
+  background: none;
+  transition: transform 0.2s ease;
+  bottom: 1rem !important;
+  right: 1rem !important;
+}
+button#delete_btn span {
+  height: 2rem;
+  width: 2rem;
+  display: flex;
+  color: red;
+}
+button#delete_btn span svg {
+  width: 100%;
+  height: 100%;
+}
+button#delete_btn:hover {
+  transform: translateY(-0.7rem);
+}
+
+@keyframes deletion {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(15rem) rotate(-25deg);
+    opacity: 0;
+  }
+}
