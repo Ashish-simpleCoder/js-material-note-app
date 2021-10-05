@@ -3,7 +3,7 @@
   margin: 0;
   box-sizing: border-box;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  letter-spacing: 0.05rem;
+  letter-spacing: 0.08rem;
 }
 
 html {
@@ -20,21 +20,21 @@ body {
 
 :root {
   --prm-clr:rgb(2,83,129);
-  --clr:hsl(202, 97%, 98%);
+  --clr:hsl(0, 0%, 100%);
   --bg-clr:hsl(202, 97%, 11%);
   --border:rgba(255,255,255,0.1);
   --input-bg:rgb(0, 0, 0);
-  --each-note-bg:hsl(202, 97%, 0%);
   --each-note-bg:hsl(202, 97%, 0%);
   --each-note-shadow:rgba(64, 61, 71, 0.3);
   --input-focused:hsl(202, 96%, 5%);
   --theme-btn-clr:rgb(0, 0, 0);
   --theme-circle-clr:rgb(2,83,129);
-  --note-title-clr:hsl(202, 97%, 98%);
+  --note-title-clr:hsl(202, 97%, 90%);
   --note-content-clr:hsl(0, 0%, 87%);
 }
 
-.toggle_theme {
+.light_theme {
+  --clr:hsl(202, 97%, 0%);
   --clr:hsl(202, 97%, 15%);
   --bg-clr:hsl(202, 97%, 99%);
   --border:rgba(22, 22, 22, 0.2);
@@ -46,10 +46,10 @@ body {
   --note-title-clr:hsl(202, 97%, 10%);
   --note-content-clr:hsl(202, 97%, 15%);
 }
-.toggle_theme div.circle {
+.light_theme div.circle {
   transform: translateX(150%);
 }
-.toggle_theme a {
+.light_theme a {
   background: white;
 }
 
@@ -197,7 +197,7 @@ div#note_output_section div.each_note_container {
 div#note_output_section div.each_note_container h3 {
   padding: 0.5rem 0;
   border-bottom: 1px solid var(--border);
-  font-size: clamp(2rem, 2rem, 2vw);
+  font-size: clamp(2rem, 2.1rem, 2.1vw);
   font-weight: 200;
   font-family: cursive, "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   color: var(--note-title-clr);
@@ -209,7 +209,8 @@ div#note_output_section div.each_note_container p {
   line-height: 2.5rem;
   width: 100%;
   height: 80%;
-  font-size: clamp(1.5rem, 1.7rem, 1.7vw);
+  font-size: clamp(1.6rem, 1.65rem, 1.65vw);
+  letter-spacing: 0.1rem;
 }
 div#note_output_section div.each_note_container button {
   position: absolute;

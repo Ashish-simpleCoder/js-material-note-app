@@ -1,27 +1,21 @@
-*{
-    padding:0;
-    margin:0;
-    box-sizing:border-box;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    letter-spacing: 0.05rem;
-}
+@import "./global";
 :root{
     --prm-clr:rgb(2,83,129);
-    --clr:hsl(202, 97%, 98%);
+    --clr:hsl(0, 0%, 100%);
     --bg-clr:hsl(202, 97%, 11%);
     --border:rgba(255,255,255,0.1);
     --input-bg:rgb(0, 0, 0);
-    --each-note-bg:hsl(202, 97%, 0%);
     --each-note-bg:hsl(202, 97%, 0%);
     --each-note-shadow:rgba(64, 61, 71, 0.3);
     --input-focused:hsl(202, 96%, 5%);
     --theme-btn-clr:rgb(0, 0, 0);
     --theme-circle-clr:rgb(2,83,129);
 
-    --note-title-clr:hsl(202, 97%, 98%);
+    --note-title-clr:hsl(202, 97%, 90%);
     --note-content-clr:hsl(0, 0%, 87%);
 }
 .light_theme{
+    --clr:hsl(202, 97%, 0%);
     --clr:hsl(202, 97%, 15%);
     --bg-clr:hsl(202, 97%, 99%);
     --border:rgba(22, 22, 22, 0.2);
@@ -38,31 +32,23 @@
         background: white;
     }
 }
-html{
-    font-size:62.5%;
-}
-body{
-    background: var(--bg-clr);
-    min-height: 100vh;
-    max-width: 200rem;
-    margin:0 auto;
-    transition: background 0.3s ease-in;
-}
+
+
 
 input,textarea#note_content{
     background: inherit;
     border:1px solid var(--border);
     resize:none;
-    // display: block;
+    display: block;
     width:100%;
     padding:0.5rem 1rem;
-    background: var(--input-bg);
+    background: var(--input-bg) !important;
     color:var(--clr);
     border-radius: 0.3rem;
     transition: background 0.3s linear;
     font-size: clamp(1.8rem,2rem,2vw);
     &:focus{
-        background: var(--input-focused);
+        background: var(--input-focused) !important;
     }
 }
 input{
@@ -143,21 +129,23 @@ div.note_input_section{
     }
 }
 a#note_gen_btn{
-    position:absolute;
-    bottom:0;
-    right:0;
+    background: rgb(2, 83, 129);
     width: 4.5rem;
     height:3rem;
-    text-align: center;
+    display: grid;
+    place-items: center;
+    justify-content: center;
     cursor:pointer;
-    background: rgb(2, 83, 129);
-    color:white;
+    transition: transform 0.2s linear;
     overflow: hidden;
+    bottom:0;
+    right:0;
+    position:absolute;
+    color:white;
     font-size:clamp(3rem,3rem,3vw);
     line-height: 3rem;
     user-select: none;
     display: none;
-    transition: transform 0.2s linear;
 }
 div#note_output_section{
     display: flex;
@@ -181,7 +169,7 @@ div#note_output_section{
         h3{
             padding:0.5rem 0;
             border-bottom:1px solid var(--border);
-            font-size: clamp(2rem,2rem,2vw);
+            font-size: clamp(2rem,2.1rem,2.1vw);
             font-weight: 200;
             font-family: cursive,'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
             color:var(--note-title-clr);
@@ -193,35 +181,17 @@ div#note_output_section{
             line-height: 2.5rem;
             width:100%;
             height: 80%;
-            font-size: clamp(1.5rem,1.7rem,1.7vw);
+            font-size: clamp(1.6rem,1.65rem,1.65vw);
+            letter-spacing: 0.1rem;
         }
         button{
             position: absolute;
-            bottom:1rem;
-            right:1rem;
+            bottom:0;
+            right:0;
             display: none;
-            color:white;
-            font-weight: 500;
-        }
-        button#save_btn{
-            background: green;
-            font-size:clamp(1.5rem,1.7rem,1.7vw);
-            padding:0.5rem 2rem;
-            left:1rem;
         }
         button.delete_btn{
             display: block;
-            background: none;
-            span{
-                height: 2rem;
-                width:2rem;
-                display: flex;
-                color:red;
-                svg{
-                    width:100%;
-                    height: 100%;
-                }
-            }
         }
         span.ripple_effect{
             position:absolute;
@@ -272,13 +242,14 @@ div#note_output_section{
 
 
 div.search_form{
-    padding: 0 3rem;
-    margin:5rem 0 3rem 0;
     display: flex;
+    padding: 0 3rem;
+    margin:4rem 0;
     align-items: center;
     border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
     h3{
+        font-size: clamp(2.5rem,3rem,3vw);
         font-size:clamp(2rem,2.5rem,2.5vw);
         color:var(--clr);
         font-weight: 400;
@@ -289,7 +260,9 @@ div.search_form{
         max-width: 60rem;
         padding: 2rem 1rem;
         margin-left: auto;
+        // font-size: clamp(1.5rem,1.7rem,1.7vw);
         font-size: clamp(1.8rem,2.2rem,2.2vw);
+        height: clamp(2.5rem,4rem,4vw) !important;
         color:var(--clr);
     }
 }
@@ -319,11 +292,6 @@ div.search_form{
             max-width: 50rem;
             min-width: 40rem;
             cursor: pointer;
-            // transition: background 0.5s ease-in;
-
-            p{
-                // font-weight: 500;
-            }
 
             &:hover{
                 transform: translateY(-1rem);
@@ -342,6 +310,14 @@ div.search_form{
     }
 }
 
+.body_relative{
+    position: relative;
+    background: var(--bg-clr);
+    input,textarea{background: inherit !important;}
+    div#note_output_section div{
+        background: inherit;
+    }
+}
 .active_editing{
     position: fixed !important;
     top:50%;
@@ -356,9 +332,16 @@ div.search_form{
         outline: none;
     }
     @media screen and(max-width:600px) {
-        width:85% !important;
-        height: 60% !important;
+        width:90% !important;
+        height: 50% !important;
         margin-bottom: 2rem;
+    }
+    button{
+        display: block !important;
+    }
+    textarea{
+        cursor: auto !important;
+        overflow: scroll;
     }
 }
 
@@ -378,33 +361,59 @@ div#dummy{
         font-weight:400;
         margin-bottom:clamp(4rem,5rem,5vw);
     }
-    a#redirect_to_input_btn{
-        background: rgb(2, 61, 95);
-        transition: transform 0.3s linear;
-        max-width: 20rem;
-        height: clamp(3.5rem,4rem,4vw);
-        box-shadow: 0 0.3rem 0.6rem rgba(0,0,0,0.5);
-        h3{
-            font-weight: 400;
-            color:hsl(202, 97%, 97%);
-            font-size: clamp(1.8rem,2rem,2vw);
-        }
-        span{
-            font-size: clamp(2.5rem,3rem,3vw);
-            color:rgb(12, 218, 12);
-            margin:0 0.8rem;
-        }
-        &:active{
-            transform: translateY(0.3rem) scale(0.8);
-        }
-
+}
+a#redirect_to_input_btn{
+    background: rgb(2, 61, 95);
+    transition: transform 0.3s linear;
+    max-width: 20rem;
+    height: clamp(3.5rem,4rem,4vw);
+    h3{
+        font-weight: 400;
+        color:hsl(202, 97%, 97%);
+        font-size: clamp(1.8rem,2rem,2vw);
     }
+    span{
+        font-size: clamp(2.5rem,3rem,3vw);
+        color:rgb(12, 218, 12);
+        margin:0 0.8rem;
+    }
+    &:active{
+        transform: translateY(0.3rem) scale(0.8);
+    }
+
 }
 .each_note_container{
     transition:width 0.3s ease, transform 0.3s ease !important;
 }
+button#save_btn{
+    background: green;
+    font-size:clamp(1.5rem,1.7rem,1.7vw);
+    color:white;
+    font-weight: 400;
+    padding:0.5rem 2rem !important;
+    left:1rem !important;
+    bottom:1rem !important;
+}
 
-
+button#delete_btn{
+    background: none;
+    transition: transform 0.2s ease;
+    bottom:1rem !important;
+    right:1rem !important;
+    span{
+        height: 2rem;
+        width:2rem;
+        display: flex;
+        color:red;
+        svg{
+            width:100%;
+            height: 100%;
+        }
+    }
+    &:hover{
+        transform: translateY(-0.7rem);
+    }
+}
 
 @keyframes deletion{
     from{
