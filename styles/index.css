@@ -3,7 +3,7 @@
   margin: 0;
   box-sizing: border-box;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  letter-spacing: 0.08rem;
+  letter-spacing: 0.1rem;
 }
 
 html {
@@ -30,21 +30,22 @@ body {
   --theme-btn-clr:rgb(0, 0, 0);
   --theme-circle-clr:rgb(2,83,129);
   --note-title-clr:hsl(202, 97%, 90%);
+  --note-title-clr:rgb(245, 245, 245);
   --note-content-clr:hsl(0, 0%, 87%);
 }
 
 .light_theme {
-  --clr:hsl(202, 97%, 0%);
-  --clr:hsl(202, 97%, 15%);
-  --bg-clr:hsl(202, 97%, 99%);
-  --border:rgba(22, 22, 22, 0.2);
-  --input-bg:rgb(255, 255, 255);
+  --clr:hsl(202, 100%, 16%);
+  --bg-clr:hsl(202, 97%, 99.5%);
+  --bg-clr:rgb(253, 253, 253);
+  --border:rgba(22, 22, 22, 0.15);
+  --input-bg:white;
   --each-note-bg:white;
   --each-note-shadow:rgba(0,0,0,0.2);
   --input-focused:hsl(202, 96%, 95%);
   --theme-btn-clr:white;
   --note-title-clr:hsl(202, 97%, 10%);
-  --note-content-clr:hsl(202, 97%, 15%);
+  --note-content-clr:hsl(202, 100%, 10%);
 }
 .light_theme div.circle {
   transform: translateX(150%);
@@ -59,7 +60,7 @@ input, textarea#note_content {
   resize: none;
   display: block;
   width: 100%;
-  padding: 0.5rem 1rem;
+  padding: 1rem;
   background: var(--input-bg) !important;
   color: var(--clr);
   border-radius: 0.3rem;
@@ -189,17 +190,16 @@ div#note_output_section div.each_note_container {
   margin-bottom: 2rem;
   background: var(--each-note-bg);
   word-wrap: break-word;
-  box-shadow: 0 0.3rem 0.6rem rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0.2rem 0.8rem rgba(0, 0, 0, 0.2);
   position: relative;
   overflow: hidden;
   opacity: 0;
 }
 div#note_output_section div.each_note_container h3 {
-  padding: 0.5rem 0;
+  padding: 0.5rem;
   border-bottom: 1px solid var(--border);
   font-size: clamp(2rem, 2.1rem, 2.1vw);
-  font-weight: 200;
-  font-family: cursive, "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-weight: normal;
   color: var(--note-title-clr);
 }
 div#note_output_section div.each_note_container p {
@@ -293,6 +293,8 @@ div.search_form input#search_keyword {
   font-size: clamp(1.8rem, 2.2rem, 2.2vw);
   height: clamp(2.5rem, 4rem, 4vw) !important;
   color: var(--clr);
+  border-top: none;
+  border-bottom: none;
 }
 
 @media screen and (min-width: 600px) {
@@ -329,9 +331,6 @@ div.search_form input#search_keyword {
   }
   div#note_output_section div.each_note_container:hover button#delete_btn {
     display: block;
-  }
-  div#note_output_section div.each_note_container button.delete_btn {
-    display: none;
   }
   div#note_output_section div.each_note_container button#edit_note {
     display: none !important;
@@ -390,7 +389,7 @@ div#dummy {
   padding: 1rem 3rem;
 }
 div#dummy h3.dummy_title {
-  font-size: clamp(2.5rem, 3rem, 3vw);
+  font-size: clamp(2.5rem, 3.5rem, 3.5vw);
   color: var(--clr);
   font-weight: 400;
   margin-bottom: clamp(4rem, 5rem, 5vw);
@@ -399,13 +398,13 @@ div#dummy h3.dummy_title {
 a#redirect_to_input_btn {
   background: #023d5f;
   transition: transform 0.3s linear;
-  max-width: 20rem;
-  height: clamp(3.5rem, 4rem, 4vw);
+  max-width: 22rem;
+  height: clamp(4rem, 4.5rem, 4.5vw);
 }
 a#redirect_to_input_btn h3 {
   font-weight: 400;
   color: #f0f9ff;
-  font-size: clamp(1.8rem, 2rem, 2vw);
+  font-size: clamp(1.7rem, 1.8rem, 1.8vw);
 }
 a#redirect_to_input_btn span {
   font-size: clamp(2.5rem, 3rem, 3vw);
