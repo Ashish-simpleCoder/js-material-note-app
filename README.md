@@ -15,18 +15,22 @@
 *  I have included the Search feature to search your notes very quickly.
 *  You can type your notes keyword and matched notes will be displayed.
 *  You can also edit your notes and also delete them if you want to.
+*  To edit a note just click on the note which you want to edit.
 
-# Create notes very easily
+# Create notes very easily.
 
 ![Screenshot (612)](https://user-images.githubusercontent.com/62009244/140528481-2c2721b0-e046-4718-af7a-a48e21d9e549.png)
 
 
 
+# search your notes.
+
 ![Screenshot (613)](https://user-images.githubusercontent.com/62009244/140530179-805baa6f-881d-4fb9-8331-9e9ed0c0352a.png)
 
 
-
-
-
 ![Screenshot (614)](https://user-images.githubusercontent.com/62009244/140530188-e87ef4a6-98a4-4a30-a858-fe216f95c5c8.png)
-![Screenshot (615)](https://user-images.githubusercontent.com/62009244/140530199-a6b226b3-1f63-45f1-9322-0f76530f7199.png)
+
+
+
+# Edit notes very easily, Just click on the note which you wanna edit.
+![Screenshot (616)](https://user-images.githubusercontent.com/62009244/140530950-012cdf8f-9d19-42d9-aff3-edc4f605b95e.png)
