@@ -19,18 +19,22 @@
 
 # Create notes very easily.
 
-![Screenshot (612)](https://user-images.githubusercontent.com/62009244/140528481-2c2721b0-e046-4718-af7a-a48e21d9e549.png)
+![image](https://user-images.githubusercontent.com/62009244/140534434-c93883e7-da93-48d8-89a8-82ee11326c6f.png)
+
 
 
 
 # search your notes.
 
-![Screenshot (613)](https://user-images.githubusercontent.com/62009244/140530179-805baa6f-881d-4fb9-8331-9e9ed0c0352a.png)
+![image](https://user-images.githubusercontent.com/62009244/140534589-9b65b610-b9bb-4fb0-bc61-4d2f97ba6114.png)
 
 
-![Screenshot (614)](https://user-images.githubusercontent.com/62009244/140530188-e87ef4a6-98a4-4a30-a858-fe216f95c5c8.png)
+
+![image](https://user-images.githubusercontent.com/62009244/140534652-519bc408-d2db-4aba-9b4d-c1f0a34b5db8.png)
+
 
 
 
 # Edit notes very easily, Just click on the note which you wanna edit.
-![Screenshot (616)](https://user-images.githubusercontent.com/62009244/140530950-012cdf8f-9d19-42d9-aff3-edc4f605b95e.png)
+
+![image](https://user-images.githubusercontent.com/62009244/140534732-a701142b-f83c-4b0c-a207-ae69edf9d055.png)
