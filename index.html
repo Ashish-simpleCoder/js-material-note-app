@@ -11,7 +11,7 @@
 </head>
 <body class='light_theme'>
     <header>
-        <h3><span><img src="./src/img/note_img.png" alt="note icon"></span>Material Note App (Vallina JS)</h3>
+        <h1><span><img src="./src/img/note_img.png" alt="note icon"></span>Material Note App (Vallina JS)</h1>
         <div>
             <a id="theme_toggler"><span>🌞</span><span>🌚</span></a>
             <div class="circle" ></div>
@@ -19,19 +19,35 @@
     </header>
 
     <main>
+        <!-- for creating new notes -->
         <div class="note_input_section">
             <input type="text" id="note_title" title="note title" area-label='type your note heading' placeholder="title...">
             <textarea id="note_content" title='note content' area-label='type notes' placeholder="type your notes..." ></textarea>
             <a id='note_gen_btn'>+</a>
         </div>
+
+        <!-- for searching the notes -->
         <div class="search_form" id='search_form'>
             <h3 id='search_form_title'>Your Notes</h3>
             <input type="text" id="search_keyword" placeholder="search your notes...">
         </div>
+
+        <!-- displaying the notes -->
         <div id="note_output_section">
             <div id="dummy">
                 <h3 class='dummy_title'>Haven't created any notes? Then lets get started.</h3>
                 <a id='redirect_to_input_btn'><span>+</span><h3>just click here</h3></a>
+            </div>
+        </div>
+
+        <!-- edit modal -->
+        <!-- editor for editing the notes -->
+        <div class="edit_mode_overlap"></div>
+        <div class='editor_mode'>
+            <h3 class="edit_title" contenteditable="false"></h3>
+            <textarea class='edit_content' contenteditable="false"></textarea>
+            <div class="btns">
+                <button class="save_btn" >save</button>
             </div>
         </div>
     </main>
