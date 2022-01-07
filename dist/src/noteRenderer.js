@@ -41,11 +41,9 @@ export default async function noteRenderer(note_obj,fromLocal){
     note_title.value='', note_content.value='' //emptying the inputs
 
     div.addEventListener('click',async function (e){
-        e.stopPropagation()
-        // if(this.getAttribute('contenteditable') == 'false'){
-            const editModer = await import('./editModer.js')
-            editModer.default(div,true,true,e,div.querySelector('.save_btn'))
-        // }
+        // e.stopPropagation()
+        const editModer = await import('./editModer.js')
+        editModer.default(this.id,e)
     },false)
 
 
