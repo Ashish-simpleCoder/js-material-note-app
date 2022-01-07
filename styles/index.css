@@ -42,7 +42,7 @@ body #hero_bg {
   --input-focused:hsl(202, 96%, 5%);
   --theme-btn-clr:rgb(0, 0, 0);
   --theme-circle-clr:rgb(2,83,129);
-  --note-title-clr:hsl(0, 0%, 90%);
+  --note-title-clr:hsl(0, 0%, 95%);
   --note-content-clr:hsl(0, 0%, 80%);
   --edit-mode-bg:rgba(0, 0, 0, 0.6);
 }
@@ -133,33 +133,41 @@ div.editor_mode {
   display: none;
   position: fixed;
   z-index: 10;
-  transition: all 0.3s;
+  transition: all 0.4s;
   overflow: hidden;
   box-shadow: 0 0.5rem 0.5rem rgba(2, 61, 95, 0.3);
   border-radius: 0.5rem;
 }
+div.editor_mode h3, div.editor_mode textarea {
+  padding: 1rem;
+  font-size: clamp(1.8rem, 2rem, 2vw);
+}
 div.editor_mode h3 {
-  padding: 0.5rem;
   border-bottom: 1px solid var(--border);
-  font-size: clamp(2rem, 2.1rem, 2.1vw);
-  font-weight: normal;
+  font-weight: 500;
   color: var(--note-title-clr);
 }
-div.editor_mode p, div.editor_mode textarea {
+div.editor_mode textarea {
   background: inherit;
-  padding: 0.5rem;
   color: var(--note-content-clr);
   text-align: left;
   line-height: 2.5rem;
   width: 100%;
   height: 80%;
-  font-size: clamp(1.6rem, 1.65rem, 1.65vw);
   letter-spacing: 0.1rem;
   white-space: pre-line;
+  border: none;
+  font-weight: 400;
 }
 div.editor_mode .btns {
   position: absolute;
   bottom: 0;
+  width: 100%;
+}
+div.editor_mode .btns button {
+  margin-inline-start: auto;
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
 }
 
 .edit_mode .editor_mode {
@@ -172,7 +180,7 @@ div.editor_mode .btns {
   max-width: 50rem;
   max-height: 50rem;
 }
-.edit_mode .editor_mode span.ripple_effect {
+.edit_mode .editor_mode span {
   position: absolute;
   background: rgba(2, 61, 95, 0.3);
   transform: translate(-50%, -50%);
@@ -187,6 +195,16 @@ div.editor_mode .btns {
   display: block;
 }
 
+@keyframes animate_ripple {
+  from {
+    width: 0;
+    height: 0;
+  }
+  to {
+    width: 300%;
+    height: 300%;
+  }
+}
 .edit_mode_overlap {
   display: none;
   background: var(--edit-mode-bg);
@@ -299,7 +317,6 @@ div#note_output_section div.each_note_container p {
   text-align: left;
   line-height: 2.5rem;
   width: 100%;
-  height: 80%;
   white-space: pre-line;
 }
 div#note_output_section div.each_note_container button {
@@ -310,24 +327,6 @@ div#note_output_section div.each_note_container button {
 }
 div#note_output_section div.each_note_container button.delete_btn {
   display: block;
-}
-div#note_output_section div.each_note_container span.ripple_effect {
-  position: absolute;
-  background: rgba(2, 61, 95, 0.3);
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
-  pointer-events: none;
-  animation: animate_ripple 0.5s linear infinite;
-}
-@keyframes animate_ripple {
-  from {
-    width: 0;
-    height: 0;
-  }
-  to {
-    width: 80rem;
-    height: 80rem;
-  }
 }
 div#note_output_section div.each_note_container span.random_elements {
   width: 7rem;
