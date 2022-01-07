@@ -1,38 +1,9 @@
 @import "./global";
-:root{
-    --prm-clr:rgb(2,83,129);
-    --clr:hsl(0, 0%, 100%);
-    --bg-clr:hsl(202, 97%, 11%);
-    --border:rgba(255,255,255,0.1);
-    --input-bg:rgb(0, 0, 0);
-    --each-note-bg:hsl(202, 97%, 0%);
-    --each-note-shadow:rgba(64, 61, 71, 0.3);
-    --input-focused:hsl(202, 96%, 5%);
-    --theme-btn-clr:rgb(0, 0, 0);
-    --theme-circle-clr:rgb(2,83,129);
+@import "./colors";
+@import "./header";
+@import "./button";
+@import './comp/editMode';
 
-    --note-title-clr:hsl(202, 97%, 90%);
-    --note-title-clr:rgb(245, 245, 245);
-    --note-content-clr:hsl(0, 0%, 87%);
-}
-.light_theme{
-    --clr:hsl(202, 100%, 16%);
-    --bg-clr:hsl(202, 97%, 99.5%);
-    --bg-clr:rgb(253, 253, 253);
-    --border:rgba(22, 22, 22, 0.15);
-    --input-bg:white;
-    --each-note-bg:white;
-    --each-note-shadow:rgba(0,0,0,0.2);
-    --input-focused:hsl(202, 96%, 95%);
-    --theme-btn-clr:white;
-    --note-title-clr:hsl(202, 97%, 10%);
-    --note-content-clr:hsl(202, 100%, 10%);
-    div.circle{
-        transform:translateX(150%);
-    }a{
-        background: white;
-    }
-}
 
 
 
@@ -47,7 +18,7 @@ input,textarea#note_content{
     color:var(--clr);
     border-radius: 0.3rem;
     transition: background 0.3s linear;
-    font-size: clamp(1.8rem,2rem,2vw);
+    font-size: clamp(1.6rem,1.7rem,1.7vw);
     &:focus{
         background: var(--input-focused) !important;
     }
@@ -71,57 +42,9 @@ a{
     }
 }
 header,#note_output_section{
-    padding: 1rem clamp(1rem,3rem,3vw);
+    padding: 0.5rem clamp(1rem,3rem,3vw);
 }
-header{
-    border-bottom: 1px solid var(--border);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    h3{
-        font-size:clamp(2rem,2.5rem,2.5vw);
-        font-weight: 400;
-        color:var(--clr);
-        display:flex;
-        align-items: center;
-        span{
-            display:flex;
-            margin-right:1rem;
-            width:clamp(3rem,4rem,4vw);
-            img{
-                width:100%;
-            }
-        }
-    }
-    div{
-        position: relative;
-        width:clamp(5rem,6rem,6vw);
-        height: clamp(2rem,2.5rem,2.5vw);
-        div.circle{
-            position:absolute;
-            border-radius: 50%;
-            top:0;
-            left:0;
-            width:clamp(2rem,2.4rem,2.4vw);
-            height: 100%;
-            background: var(--theme-circle-clr);
-            transition:transform 0.3s linear;
-            pointer-events: none;
-        }
-    }
-    a#theme_toggler{
-        width:100%;
-        height: 100%;
-        border-radius: 1111rem;
-        background: var(--theme-btn-clr);
-        border:1px solid rgba(0,0,0,0.2);
-        display: flex;
-        align-items: center;
-        overflow: hidden;
-        justify-content: space-between;
-        font-size:clamp(1.3rem,1.7rem,1.7vw);
-    }
-}
+
 div.note_input_section{
     position: relative;
     margin: clamp(3rem,3rem,3vw) clamp(1rem,3rem,3vw);
@@ -162,26 +85,30 @@ div#note_output_section{
         margin-bottom: 2rem;
         background: var(--each-note-bg);
         word-wrap:break-word;
-        box-shadow: 0 0.2rem 0.8rem rgba(0,0,0,0.2);
+        box-shadow: 0 0.2rem 0.3rem rgba(0,0,0,0.3);
         position:relative;
         overflow:hidden;
-        opacity: 0;
-        h3{
+        opacity: 1;
+        h3,p{
             padding:0.5rem;
+            font-size: clamp(1.5rem,1.7rem,1.7vw);
+            font-weight: 400;
+        }
+        h3{
             border-bottom:1px solid var(--border);
-            font-size: clamp(2rem,2.1rem,2.1vw);
-            font-weight: normal;
             color:var(--note-title-clr);
         }
         p{
-            padding:0.5rem;
+            // font-size: clamp(1.5rem,1.7rem,1.7vw);
+            // padding:0.5rem;
             color:var(--note-content-clr);
             text-align: left;
             line-height: 2.5rem;
             width:100%;
             height: 80%;
-            font-size: clamp(1.6rem,1.65rem,1.65vw);
-            letter-spacing: 0.1rem;
+            // font-weight: 400;
+            // letter-spacing: 0.1rem;
+            white-space: pre-line;
         }
         button{
             position: absolute;
@@ -243,14 +170,14 @@ div#note_output_section{
 div.search_form{
     display: flex;
     padding: 0 3rem;
-    margin:4rem 0;
+    margin:4rem 0 2rem 0;
     align-items: center;
     border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
     h3{
-        font-size: clamp(2.5rem,3rem,3vw);
-        font-size:clamp(2rem,2.5rem,2.5vw);
-        color:var(--clr);
+        // font-size:clamp(2rem,2.5rem,2.5vw);
+       font-size:clamp(1.8rem,2rem,2vw);
+        color:var(--prm-clr);
         font-weight: 400;
         width: 100%;
         position: relative;
@@ -259,8 +186,6 @@ div.search_form{
         max-width: 60rem;
         padding: 2rem 1rem;
         margin-left: auto;
-        // font-size: clamp(1.5rem,1.7rem,1.7vw);
-        font-size: clamp(1.8rem,2.2rem,2.2vw);
         height: clamp(2.5rem,4rem,4vw) !important;
         color:var(--clr);
         border-top:none;

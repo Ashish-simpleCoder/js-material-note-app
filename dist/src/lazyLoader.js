@@ -9,7 +9,7 @@ export default function lazyLoader(divs){
         entries.forEach(entry=>{
             const div = entry.target
             if(entry.isIntersecting){
-                div.style.animation = 'load_div 0.5s linear forwards'
+                div.style.animation = 'load_div 0.5s linear'
                 // div.classList.add('animate_list_loading')
             }
             else{

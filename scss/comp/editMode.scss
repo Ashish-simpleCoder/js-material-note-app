@@ -1,0 +1,75 @@
+div.editor_mode{
+   display:none;
+   position:fixed;
+   // background: rgb(27, 26, 27);
+   z-index:10;
+   transition: all 0.3s;
+   overflow: hidden;
+   box-shadow: 0 0.5rem 0.5rem rgba(2, 61, 95,0.3);
+   border-radius:0.5rem;
+
+   h3{
+      padding:0.5rem;
+      border-bottom:1px solid var(--border);
+      font-size: clamp(2rem,2.1rem,2.1vw);
+      font-weight: normal;
+      color:var(--note-title-clr);
+  }
+  p,textarea{
+     background: inherit;
+      padding:0.5rem;
+      color:var(--note-content-clr);
+      text-align: left;
+      line-height: 2.5rem;
+      width:100%;
+      height: 80%;
+      font-size: clamp(1.6rem,1.65rem,1.65vw);
+      letter-spacing: 0.1rem;
+      white-space: pre-line;
+  }
+  .btns{
+   //   display: flex;
+     position: absolute;
+     bottom:0;
+  }
+}
+
+
+
+
+.edit_mode{
+   // background: var(--edit-mode-bg);
+   .editor_mode{
+      top:50% !important;
+      left:50% !important;
+      transform: translate(-50%,-50%) ;
+      background: var(--each-note-bg);
+      width:90% !important;
+      height: 80% !important;
+      max-width:50rem;
+      max-height: 50rem;
+      span.ripple_effect{
+         position:absolute;
+         background: rgba(2, 61, 95,0.3);
+         transform:translate(-50%,-50%);
+         border-radius:50%;
+         pointer-events: none;
+         animation:animate_ripple 0.5s linear infinite;
+     }
+   }
+
+   .each_note_container{
+      pointer-events: none;
+
+   }
+   .edit_mode_overlap{
+      display: block;
+   }
+}
+.edit_mode_overlap{
+   display: none;
+   // z-index: 1;
+   background: var(--edit-mode-bg);
+   position:absolute;
+   inset:0;
+}
