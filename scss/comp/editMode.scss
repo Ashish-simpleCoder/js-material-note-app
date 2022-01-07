@@ -2,7 +2,7 @@ div.editor_mode{
    display:none;
    position:fixed;
    z-index:10;
-   transition: all 0.4s;
+   transition: all 0.5s;
    overflow: hidden;
    box-shadow: 0 0.5rem 0.5rem rgba(2, 61, 95,0.3);
    border-radius:0.5rem;
@@ -46,7 +46,7 @@ div.editor_mode{
 
 
 .edit_mode{
-   // background: var(--edit-mode-bg);
+   position: relative;
    .editor_mode{
       top:50% !important;
       left:50% !important;
@@ -85,8 +85,10 @@ div.editor_mode{
 }
 .edit_mode_overlap{
    display: none;
-   // z-index: 1;
    background: var(--edit-mode-bg);
    position:absolute;
    inset:0;
+   width: 100%;
+   height: 100%;
+
 }
