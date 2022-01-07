@@ -36,7 +36,7 @@ body #hero_bg {
   --clr:hsl(0, 0% , 85%);
   --bg-clr:hsl(200, 7%, 6%);
   --border:rgba(255,255,255,0.1);
-  --input-bg:rgb(0, 0, 0);
+  --input-bg:hsl(200, 7%, 12%);
   --each-note-bg:hsl(200, 7%, 12%);
   --each-note-shadow:rgba(64, 61, 71, 0.3);
   --input-focused:hsl(202, 96%, 5%);
@@ -51,7 +51,7 @@ body #hero_bg {
   --prm-clr:hsl(202, 100%, 5%);
   --header-bg:white;
   --clr:hsl(202, 100%, 10%);
-  --bg-clr:hsl(176, 100%, 99%);
+  --bg-clr:hsl(176, 100%, 98%);
   --border:rgba(22, 22, 22, 0.15);
   --input-bg:white;
   --each-note-bg:white;

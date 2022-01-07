@@ -10,8 +10,8 @@ export default function editModer(div,c1,c2,e,save_btn){
     editor_mode.style.display = 'block'
 
 
+    div.style.opacity = 0
     setTimeout(()=>{
-        div.style.opacity = 0
         document.body.classList.add('edit_mode')
         editor_mode.children[0].innerHTML = div.children[0].textContent
         editor_mode.children[1].innerHTML = div.children[1].textContent
