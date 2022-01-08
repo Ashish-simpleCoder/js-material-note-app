@@ -17,8 +17,8 @@ export default async function noteRenderer(note_obj,fromLocal){
     for(let i=0;i<6;i++){
         let index = Math.floor(Math.random(0)*range_clr.length)
         hex_clr += range_clr[index]
-        span.style.background = hex_clr
     }
+    span.style.background = hex_clr
     div.appendChild(span)
     div.style.animation = 'load_div 0.3s linear forwards'
 

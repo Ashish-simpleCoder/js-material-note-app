@@ -48,3 +48,10 @@ theme_toggler.addEventListener('click',(e)=>{
     e.stopPropagation()
     document.body.classList.toggle('light_theme')
 })
+
+addEventListener('popstate',()=>{
+    if(document.body.classList.contains('edit_mode')){
+        history.pushState(null, null, window.location.pathname)
+        document.body.classList.remove('edit_mode')
+    }
+})
